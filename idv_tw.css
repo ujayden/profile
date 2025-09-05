@@ -444,15 +444,6 @@
       background-color: color-mix(in oklab, var(--color-white) 40%, transparent);
     }
   }
-  .bg-cover {
-    background-size: cover;
-  }
-  .bg-center {
-    background-position: center;
-  }
-  .bg-no-repeat {
-    background-repeat: no-repeat;
-  }
   .object-contain {
     object-fit: contain;
   }
@@ -728,26 +719,6 @@
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
-.ios-bg-fix {
-  background-attachment: scroll !important;
-  background-size: cover !important;
-  background-position: center center !important;
-  background-repeat: no-repeat !important;
-}
-@supports (-webkit-touch-callout: none) {
-  .ios-bg-fix {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-  }
-}
-@media only screen and (max-width: 1024px) {
-  .ios-bg-fix {
-    background-attachment: scroll !important;
-    background-size: cover !important;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-  }
-}
 h1, h2, h3, h4, h5, h6, p, span, div, button, a, input, textarea, select {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
@@ -801,7 +772,20 @@ main > div:nth-of-type(5) > .glass-enhanced {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.overlay-dark::before {
+body.overlay-dark::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/idv_assets/background.PNG');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+.overlay-dark::after {
   content: '';
   position: fixed;
   top: 0;

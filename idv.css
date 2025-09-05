@@ -4,35 +4,6 @@ body {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
-/* iOS Background Fix */
-.ios-bg-fix {
-    /* Ensure background is properly sized on iOS */
-    background-attachment: scroll !important;
-    background-size: cover !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
-}
-
-/* Additional iOS Safari specific fixes */
-@supports (-webkit-touch-callout: none) {
-    .ios-bg-fix {
-        /* Fix for iOS Safari viewport units */
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
-    }
-}
-
-/* Webkit specific fixes for mobile browsers */
-@media only screen and (max-width: 1024px) {
-    .ios-bg-fix {
-        background-attachment: scroll !important;
-        /* Prevent background zooming on mobile */
-        background-size: cover !important;
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
-    }
-}
-
 /* Ensure all text elements use Montserrat */
 h1, h2, h3, h4, h5, h6,
 p, span, div, button, a,
@@ -93,7 +64,21 @@ main > div:nth-of-type(5) > .glass-enhanced { animation-delay: 0.5s; }
      border: 1px solid rgba(255, 255, 255, 0.3);
 }
         
-.overlay-dark::before {
+body.overlay-dark::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/idv_assets/background.PNG');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -2;
+}
+
+.overlay-dark::after {
     content: '';
     position: fixed;
     top: 0;
