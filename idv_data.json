@@ -1,0 +1,42 @@
+{
+    "version": "1.0",
+    "lastUpdate": "2025-09-06",
+    "profile": {
+        "mainName": "uJayden",
+        "asiaServer": {
+            "ign": "火災調查員฀",
+            "id": "16938170"
+        },
+        "chinaServer": {
+            "ign": "哈基火灾调查员",
+            "id": "301080114"
+        }
+    },
+    "statistics": {
+        "lastUpdated": "06/09/2025",
+        "survivor": {
+            "tier": "Tier VI - II",
+            "tierIconURL": "idv_assets/s-6.png"
+        },
+        "hunter": {
+            "tier": "Tier V - II",
+            "tierIconURL": "idv_assets/h-5.png"
+        }
+    },
+    "favouriteCharacter": {
+        "name": "Florian Brand, the Fire Investigator",
+        "description": "This is my favourite character in Identity V. I love playing as Florian not only because he is cute and cool, but also because of his tragic backstory, which makes me sympathize with him. I also like his two-faced complexity and moral ambiguity, with his kindness and hidden darkness.\nAnyway, who doesn't love a cute Fire Investigator? 🔥",
+        "image": "idv_assets/florian_brand.gif"
+    },
+    "aboutMe": {
+        "intro": "Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player in the top tiers, but I enjoy the game and playing my favourite character, Florian Brand.",
+        "gaming": "When I'm not playing Identity V, I work on programming projects like coding and maintaining my website, even as an LSGI student. I also play games like Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included, Stardew Valley, and The Sims 4. I look forward to friendly discussions about Identity V! Any friend requests are welcome. About CP: I don't ship nor oppose any CP."
+    },
+    "links": {
+        "blog": "https://www.ujayden.com/",
+        "github": "https://github.com/ujayden",
+        "threads": "https://www.threads.com/@ujayden_00",
+        "mail": "mailto:admin@ujayden.com",
+        "privacy": "https://www.ujayden.com/privacy-policy/"
+    }
+}

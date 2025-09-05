@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Under Construction - portal.ujayden.com</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="robots" content="noindex">
+        <!-- Under Construction Page -->
+        <!-- Profile Site Coming Soon-->
+		<style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:wght@400;500;600;700&display=swap');
+			body {
+				background-color: #f1f1f1;
+				color: #000;
+				font-family: 'Montserrat', sans-serif;
+				margin: 0;
+				position: relative;
+
+			}
+            #mainContent {
+                display: block;
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1000px;
+                position: relative;
+            }
+            .container {
+                margin:0 20px;
+            }
+			.msg_box {
+				background-color: #fff;
+				padding: 20px;
+				color: #000;
+				max-width: 800px;
+				border: 2px solid #000;
+				-webkit-box-shadow: 5px 5px 0 2px rgba(0, 0, 0, .6);
+				box-shadow: 5px 5px 0 2px rgba(0, 0, 0, .6);
+                border-radius: 4px;
+			}
+            .msg_box h1, .msg_box h2, .msg_box h5, .msg_box p {
+                color: #000;
+            }
+			h1 {
+				color: #000;
+                font-weight: 500;
+
+			}
+            h2{
+                color: #000;
+                font-weight: 600;
+                font-size: 1.4em;
+            }
+            h5{
+                color: #000;
+                font-weight: 400;
+            }
+            .topElement{
+                margin-top: 40px;
+            }
+            p{
+                color: #000;
+                font-weight: 400;
+                max-width: 80%;
+            }
+            .hint{
+                max-width: 80%;
+            }
+            .hint p{
+                max-width: 100%;
+            }
+            .hint h2{
+                margin-top: 0;
+            }
+            #search input {
+                padding: 12px 16px;
+                margin-right: 10px;
+                border: 2px solid #BBB; 
+                border-radius: 8px;
+                width: 60%;
+                font-size: 16px;
+                outline: none; 
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                box-sizing: border-box;
+            }
+
+            #search input:focus {
+                border-color: #007BFF;
+                box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+            }
+            #search input:hover {
+                border-color: #999;
+            }
+            #search button {
+                font-size: 16px;
+                color: black;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                padding: 12px 16px;
+                margin-left: 10px;
+                border: 2px solid #BBB;
+                border-radius: 8px;
+                background-color: #F8F8F8;
+                color: #333;
+                cursor: pointer;
+                outline: none;
+                transition: all 0.3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            #search button:hover {
+                background-color: #F0F0F0;
+                border-color: #999;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            #search button:focus {
+                background-color: #DDEEFF;
+                border-color: #007BFF;
+                box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            }
+            a{
+                color: #0078ff;
+                text-decoration: none;
+                position: relative;
+                transition: color 0.3s ease;
+            }
+
+            a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 0;
+                height: 2px;
+                background-color: #0078ff;
+                transition: width 0.3s ease;
+            }
+
+            a:hover {
+                color: #0056cc;
+            }
+
+            a:hover::after {
+                width: 100%;
+            }
+            a:focus {
+                outline: 2px dashed #0078ff;
+                outline-offset: 3px;
+            }
+
+			button {
+                font-family: 'Montserrat', sans-serif;
+				cursor: pointer;
+				border: 2px solid #000;
+				color: #000;
+				border-radius: 6px;
+			}
+            .menu_bt {
+				background-color: #0056cc;
+				margin-right: 24px;
+                border: 3px solid #0056cc;
+                color: #fff;
+                padding: 12px 24px;
+                transition: all .3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+			}
+			.menu_bt:hover {
+				cursor: pointer;
+				background-color: #fff;
+                color: #0056cc;
+				transition: all .3s;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			}
+            .menu_bt a{
+                color: #fff;
+                text-decoration: none;
+            }
+            .menu_bt:hover a{
+                color: #0056cc;
+            }
+			.bt_group {
+				display: flex;
+				margin-top: 20px;
+				row-gap: 30px;
+			}
+            .buttonLink {
+                text-decoration: none;
+                transition: none;
+                font-weight: 700;
+                font-size: 16px;
+            }
+            .buttonLink:hover {
+                text-decoration: none;
+            
+            }
+            .buttonLink::after{
+                content: none;
+            }
+            @media screen and (max-width: 1000px) {
+                p{
+                    max-width: 95%;
+                }
+                .hint{
+                    max-width: 95%;
+                }
+            }
+            @media screen and (max-width: 730px) {
+                p{
+                    max-width: 100%;
+                }
+                .hint{
+                    max-width: 100%;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                #search input {
+                    width: 100%;
+                }
+                #search button {
+                    margin-left: 0;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+                .bt_group {
+                    flex-direction: column;
+                    row-gap: 10px;
+                }
+                .menu_bt {
+                    margin-right: 0;
+                }
+            }
+
+            /** Dark Mode - To keep browser compatibility, CSS variables are not used. */
+            /* Dark mode styles */
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: #252629;
+                    color: #ffffff;
+                }
+                h1 {
+                    color: #ffffff;
+                }
+                h2 {
+                    color: #ffffff;
+                }
+                h5 {
+                    color: #ffffff;
+                }
+                p{
+                    color: #ffffff;
+                }
+                a {
+                    color: #86d9fc;
+                }
+                a::after {
+                    background-color: #86d9fc;
+                }
+                a:hover {
+                    color: #5cb8ff;
+                }
+                #search input {
+                    background-color: #1e1e1e;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+                #search button {
+                    background-color: #333333;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+                #search button:hover {
+                    background-color: #4d4d4d;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }  
+                #search button:focus {
+                    background-color: #333333;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+                .menu_bt {
+                    background-color: #333333;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+                button {
+                    background-color: #333333;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+            }
+		</style>
+		<script>
+            'use strict';
+			const redirects = {
+				"main": "https://ujayden.com/",
+				"fallback": "https://ujayden.com/",
+                "status": "https://status.ujayden.com/"
+			};
+            const remoteConfig = "https://ujayden.com/error_pages/config.json";
+            const canRemoteConfig = true;
+
+			function redirectTo(URLIndex) {
+				if (redirects.hasOwnProperty(URLIndex)) {
+					window.location.href = redirects[URLIndex];
+				} else {
+					console.error("Invalid URL index");
+					window.location.href = redirects.fallback;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<main id="mainContent">
+			<div class="container">
+				<div>
+                    <h5 class="topElement">INFORMATION</h5>
+					<h1>This site is under construction.</h1>
+				</div>
+				<p>
+                <div>
+                    <h2>What's happening?</h2>
+                    <p>Sorry, I am lazy and haven't write anything here yet. To make a placeholder, I created this page for profile.ujayden.com</p>
+                </div>
+                <div>
+                    <p>You can visit the links while waiting for my profile page:</p>
+                </div>
+				<div class="bt_group">
+					<button class="menu_bt" onclick="redirectTo('main')">
+						<a href="https://ujayden.com/" class="buttonLink">Main Website</a>
+					</button>
+					<button class="menu_bt" onclick="redirectTo('status')">
+						<a href="https://status.ujayden.com/" class="buttonLink">Service Status</a>
+					</button>
+				</div>
+                <div class="topElement">
+                    <!-- Under Construction Page -->
+                    <noscript>
+                        <div class="msg_box hint">
+                            <h2>Hint</h2>
+                            <p>Javascript is disabled in your browser. Some features of this site may not work properly without Javascript enabled.</p>
+                            <a href="https://www.enable-javascript.com/" target="_blank">Learn how to enable Javascript - Third Party Site</a>
+                        </div>
+                    </noscript>
+                    <p hidden>PAGE STATUS: UNDER_CONSTRUCTION</p>
+                </div>
+			</div>
+		</main>
+	</body>
+
+</html>

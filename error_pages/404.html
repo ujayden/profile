@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>404 - Not Found</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="robots" content="noindex">
+		<style>
+            @font-face {
+                font-family: 'Montserrat';
+                src: url('/error_pages/Montserrat.woff2') format('woff2');
+            }
+            body {
+                background-color: #f1f1f1;
+                color: #000;
+                font-family: 'Montserrat', sans-serif;
+                margin: 0;
+                position: relative;
+
+            }
+            #mainContent {
+                display: block;
+                margin: 0 auto;
+                width: 100%;
+                max-width: 1000px;
+                position: relative;
+            }
+            .container {
+                margin:0 20px;
+            }
+            h1 {
+                color: #000;
+                font-weight: 500;
+
+            }
+            h2{
+                color: #000;
+                font-weight: 600;
+                font-size: 1.4em;
+            }
+            h5{
+                color: #000;
+                font-weight: 400;
+            }
+            .topElement{
+                margin-top: 40px;
+            }
+            p{
+                color: #000;
+                font-weight: 400;
+                max-width: 80%;
+            }
+            a{
+                color: #0078ff;
+                text-decoration: none;
+                position: relative;
+                transition: color 0.3s ease;
+            }
+
+            a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 0;
+                height: 2px;
+                background-color: #0078ff;
+                transition: width 0.3s ease;
+            }
+
+            a:hover {
+                color: #0056cc;
+            }
+
+            a:hover::after {
+                width: 100%;
+            }
+            a:focus {
+                outline: 2px dashed #0078ff;
+                outline-offset: 3px;
+            }
+
+            button {
+                font-family: 'Montserrat', sans-serif;
+                cursor: pointer;
+                border: 2px solid #000;
+                color: #000;
+                border-radius: 6px;
+            }
+            .menu_bt {
+                background-color: #0056cc;
+                margin-right: 24px;
+                border: 3px solid #0056cc;
+                color: #fff;
+                padding: 12px 24px;
+                transition: all .3s ease;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            .menu_bt:hover {
+                cursor: pointer;
+                background-color: #fff;
+                color: #0056cc;
+                transition: all .3s;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .menu_bt a{
+                color: #fff;
+                text-decoration: none;
+            }
+            .menu_bt:hover a{
+                color: #0056cc;
+            }
+            .buttonLink {
+                text-decoration: none;
+                transition: none;
+                font-weight: 700;
+                font-size: 16px;
+            }
+            .buttonLink:hover {
+                text-decoration: none;
+            
+            }
+            .buttonLink::after{
+                content: none;
+            }
+            @media screen and (max-width: 1000px) {
+                p{
+                    max-width: 95%;
+                }
+            }
+            @media screen and (max-width: 730px) {
+                p{
+                    max-width: 100%;
+                }
+            }
+            @media screen and (max-width: 600px) {
+                .menu_bt {
+                    margin-right: 0;
+                }
+            }
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: #252629;
+                    color: #ffffff;
+                }
+                h1 {
+                    color: #ffffff;
+                }
+                h2 {
+                    color: #ffffff;
+                }
+                h5 {
+                    color: #ffffff;
+                }
+                p{
+                    color: #ffffff;
+                }
+                a {
+                    color: #86d9fc;
+                }
+                a::after {
+                    background-color: #86d9fc;
+                }
+                a:hover {
+                    color: #5cb8ff;
+                }
+                .menu_bt {
+                    background-color: #333333;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+                button {
+                    background-color: #333333;
+                    border-color: #ffffff;
+                    color: #ffffff;
+                }
+            }
+        </style>
+    </head>
+    <body>
+		<main id="mainContent">
+			<div class="container">
+				<div>
+                    <h5 class="topElement">ERROR</h5>
+					<h1>404 - Not Found</h1>
+				</div>
+				<p>
+                <div>
+                    <h2>What happened?</h2>
+                    <p>Thh requested file or page cannot be found on our server.</p>
+                    <p>We apologizing for the inconvenience. </p>
+                </div>
+                <div>
+                </div>
+				<div>
+					<button class="menu_bt" onclick="window.history.back()">
+						<a href="javascript:window.history.back();" class="buttonLink">Go Back</a>
+					</button>
+				</div>
+			</div>
+		</main>
+	</body>
+
+</html>
