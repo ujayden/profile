@@ -37,6 +37,7 @@
     --leading-relaxed: 1.625;
     --radius-lg: 0.5rem;
     --radius-2xl: 1rem;
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --blur-sm: 8px;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -193,6 +194,9 @@
   }
 }
 @layer utilities {
+  .visible {
+    visibility: visible;
+  }
   .fixed {
     position: fixed;
   }
@@ -443,9 +447,6 @@
   .bg-cover {
     background-size: cover;
   }
-  .bg-fixed {
-    background-attachment: fixed;
-  }
   .bg-center {
     background-position: center;
   }
@@ -587,6 +588,10 @@
     --tw-duration: 200ms;
     transition-duration: 200ms;
   }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
   .hover\:bg-blue-500\/50 {
     &:hover {
       @media (hover: hover) {
@@ -722,6 +727,26 @@
 }
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+.ios-bg-fix {
+  background-attachment: scroll !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+@supports (-webkit-touch-callout: none) {
+  .ios-bg-fix {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .ios-bg-fix {
+    background-attachment: scroll !important;
+    background-size: cover !important;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
 }
 h1, h2, h3, h4, h5, h6, p, span, div, button, a, input, textarea, select {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -914,6 +939,10 @@ main > div:nth-of-type(5) > .glass-enhanced {
   syntax: "*";
   inherits: false;
 }
+@property --tw-ease {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -946,6 +975,7 @@ main > div:nth-of-type(5) > .glass-enhanced {
       --tw-backdrop-saturate: initial;
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
+      --tw-ease: initial;
     }
   }
 }
