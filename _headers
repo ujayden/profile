@@ -1,3 +1,4 @@
 /*
-  Content-Security-Policy: default-src 'self' *.ujayden.com;
-    frame-ancestors 'self' *.ujayden.com ujayden.com;
+  Content-Security-Policy: frame-ancestors 'self' *.ujayden.com ujayden.com
+  X-XSS-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
