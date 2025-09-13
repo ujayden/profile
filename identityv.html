@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>uJayden's IdentityV Profile</title>
+    <title data-i18n="page_title">uJayden's IdentityV Profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -20,6 +20,8 @@
     <meta property="og:url" content="https://portal.ujayden.com/identityv" />
     <meta property="og:type" content="website" />
     <meta name="robots" content="index, follow">
+    
+    <!--Developer message: Version 1.1-->
 
     <!--<style type="text/tailwindcss">
         /* Enhanced readability with stronger backdrop */
@@ -125,21 +127,47 @@
                             <!-- Survivor Stats -->
                             <div class="text-center">
                                 <div class="flex items-center justify-center mb-2">
-                                    <img id="survivor-tier-icon" src="idv_assets/s-6.png" alt="Survivor Tier" 
-                                         class="w-20 h-20 mr-2 object-contain opacity-80">
+                                    <img id="survivor-tier-icon" src="idv_assets/s-7-basic.png" alt="Survivor Tier" 
+                                         class="w-20 h-20 mr-2 object-contain">
                                 </div>
                                 <h3 data-i18n="survivor_label" class="text-white font-semibold mb-1">Survivor</h3>
-                                <p data-i18n="survivor_tier" class="text-blue-200 text-sm">Tier VI - II</p>
+                                <p data-i18n="survivor_tier" class="text-blue-200 text-sm">Tier VII</p>
                             </div>
                             
                             <!-- Hunter Stats -->
                             <div class="text-center">
                                 <div class="flex items-center justify-center mb-2">
                                     <img id="hunter-tier-icon" src="idv_assets/h-5.png" alt="Hunter Tier" 
-                                         class="w-20 h-20 mr-2 object-contain opacity-80">
+                                         class="w-20 h-20 mr-2 object-contain">
                                 </div>
                                 <h3 data-i18n="hunter_label" class="text-white font-semibold mb-1">Hunter</h3>
                                 <p data-i18n="hunter_tier" class="text-red-200 text-sm">Tier V - II</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Historical Stats Section -->
+                        <div class="mt-8">
+                            <h3 data-i18n="historical_stats_title" class="text-xl font-semibold text-white mb-4 text-center">Historical Stats</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Historical Survivor Stats -->
+                                <div class="text-center">
+                                    <div class="flex items-center justify-center mb-2">
+                                        <img id="historical-survivor-tier-icon" src="idv_assets/s-7-basic.png" alt="Historical Survivor Tier" 
+                                             class="w-20 h-20 mr-2 object-contain">
+                                    </div>
+                                    <h4 data-i18n="survivor_label" class="text-white font-semibold mb-1">Survivor</h4>
+                                    <p data-i18n="historical_survivor_tier" class="text-blue-200 text-sm">Tier VII - 0 Star(s)</p>
+                                </div>
+                                
+                                <!-- Historical Hunter Stats -->
+                                <div class="text-center">
+                                    <div class="flex items-center justify-center mb-2">
+                                        <img id="historical-hunter-tier-icon" src="idv_assets/h-5.png" alt="Historical Hunter Tier" 
+                                             class="w-20 h-20 mr-2 object-contain">
+                                    </div>
+                                    <h4 data-i18n="hunter_label" class="text-white font-semibold mb-1">Hunter</h4>
+                                    <p data-i18n="historical_hunter_tier" class="text-red-200 text-sm">Tier V - II</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -152,8 +180,40 @@
             </div>
         </div>
 
-        <!-- Favourite Character Section - Left Aligned -->
+        <!-- Character Knowledge Points Section - Left Aligned -->
         <div class="flex justify-start">
+            <div id="character-knowledge" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="character_knowledge_title" class="text-2xl font-bold text-white mb-6">Character Knowledge Points</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-white">
+                        <thead>
+                            <tr class="border-b border-white/30">
+                                <th data-i18n="highest_label" class="text-left py-3 px-4 font-semibold">Highest</th>
+                                <th data-i18n="character_name_label" class="text-left py-3 px-4 font-semibold">Character Name</th>
+                                <th data-i18n="current_label" class="text-left py-3 px-4 font-semibold">Current</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/20">
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="idv_assets/Badge_Survivor_B.png" alt="B Badge" class="h-8 object-contain">
+                                        <span>(7143)</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4" data-i18n="fire_investigator_label">Fire Investigator</td>
+                                <td class="py-3 px-4">
+                                    <img src="idv_assets/Badge_Survivor_C.png" alt="C Badge" class="h-8 object-contain">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Favourite Character Section - Right Aligned -->
+        <div class="flex justify-end">
             <div id="favourite-character" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
                 <h2 data-i18n="favourite_character_title" class="text-2xl font-bold text-white mb-6">Favourite Character</h2>
                 <div class="flex flex-col sm:flex-row gap-6 items-start">
@@ -177,8 +237,8 @@
             </div>
         </div>
 
-        <!-- About Me Section - Right Aligned -->
-        <div class="flex justify-end">
+        <!-- About Me Section - left Aligned -->
+        <div class="flex justify-start">
             <div id="about-me" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
                 <h2 data-i18n="about_me_title" class="text-2xl font-bold text-white mb-6">About Me</h2>
                 <div class="text-white space-y-4">
@@ -186,13 +246,13 @@
                         Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.
                     </p>
                     <p data-i18n="about_me_gaming" class="text-sm sm:text-base leading-relaxed">
-                        When I'm not playing Identity V, I will do something related to programming, such as coding and maintaining my website, even I am a LSGI student. I also play some games such as Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included and The Sims 4. I look forward to a friendly discussion about IdentityV!
+                        When I'm not playing Identity V, I will do something related to programming, such as coding and maintaining my website, even I am a LSGI student. I also play some games such as Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included and The Sims 4. I look forward to a friendly discussion about IdentityV! About CP: I don't ship nor oppose any CP. 
                     </p>
                 </div>
             </div>
         </div>
 
-        <!-- Links Section - Left Aligned -->
+        <!-- Links Section - ALWAYS Left Aligned -->
         <div class="flex justify-start">
             <div id="links" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
                 <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 text-white">

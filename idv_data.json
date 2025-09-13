@@ -1,6 +1,6 @@
 {
-    "version": "1.0",
-    "lastUpdate": "2025-09-06",
+    "version": "1.1",
+    "lastUpdate": "2025-09-13",
     "profile": {
         "mainName": "uJayden",
         "asiaServer": {
@@ -13,15 +13,35 @@
         }
     },
     "statistics": {
-        "lastUpdated": "06/09/2025",
+        "lastUpdated": "13/09/2025",
         "survivor": {
-            "tier": "Tier VI - II",
-            "tierIconURL": "idv_assets/s-6.png"
+            "tier": "Tier VII",
+            "tierIconURL": "idv_assets/s-7-basic.png"
         },
         "hunter": {
             "tier": "Tier V - II",
             "tierIconURL": "idv_assets/h-5.png"
+        },
+        "historical": {
+            "survivor": {
+                "tier": "Tier VII - 0 Star(s)",
+                "tierIconURL": "idv_assets/s-7-basic.png"
+            },
+            "hunter": {
+                "tier": "Tier V - II",
+                "tierIconURL": "idv_assets/h-5.png"
+            }
         }
+    },
+    "characterKnowledge": {
+        "highest": {
+            "badge": "idv_assets/Badge_Survivor_B.png",
+            "points": 7143
+        },
+        "current": {
+            "badge": "idv_assets/Badge_Survivor_C.png"
+        },
+        "characterName": "Fire Investigator"
     },
     "favouriteCharacter": {
         "name": "Florian Brand, the Fire Investigator",
@@ -29,8 +49,8 @@
         "image": "idv_assets/florian_brand.gif"
     },
     "aboutMe": {
-        "intro": "Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player in the top tiers, but I enjoy the game and playing my favourite character, Florian Brand.",
-        "gaming": "When I'm not playing Identity V, I work on programming projects like coding and maintaining my website, even as an LSGI student. I also play games like Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included, Stardew Valley, and The Sims 4. I look forward to friendly discussions about Identity V! Any friend requests are welcome. About CP: I don't ship nor oppose any CP."
+        "intro": "Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.",
+        "gaming": "When I'm not playing Identity V, I will do something related to programming, such as coding and maintaining my website, even I am a LSGI student. I also play some games such as Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included and The Sims 4. I look forward to a friendly discussion about IdentityV! About CP: I don't ship nor oppose any CP."
     },
     "links": {
         "blog": "https://www.ujayden.com/",

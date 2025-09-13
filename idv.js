@@ -51,11 +51,20 @@ function applyLanguage(lang) {
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
+            // Keys that may contain safe inline HTML (e.g., <s>)
+            const htmlAllowedKeys = new Set(['about_me_intro']);
+
             // Handle character description specially to preserve line breaks
             if (key === 'character_description') {
                 element.innerHTML = translations[lang][key].replace(/\n/g, '<br>');
+            } else if (htmlAllowedKeys.has(key)) {
+                element.innerHTML = translations[lang][key];
             } else {
                 element.textContent = translations[lang][key];
+                // Ensure browser tab title updates as well
+                if (key === 'page_title' || element.tagName?.toLowerCase() === 'title') {
+                    document.title = translations[lang][key];
+                }
             }
         }
     });
@@ -110,6 +119,8 @@ function populateData() {
         // Update tier icons
         const survivorIconElement = document.getElementById('survivor-tier-icon');
         const hunterIconElement = document.getElementById('hunter-tier-icon');
+        const historicalSurvivorIconElement = document.getElementById('historical-survivor-tier-icon');
+        const historicalHunterIconElement = document.getElementById('historical-hunter-tier-icon');
         
         if (survivorIconElement && siteData.statistics.survivor.tierIconURL) {
             survivorIconElement.src = siteData.statistics.survivor.tierIconURL;
@@ -117,8 +128,57 @@ function populateData() {
         if (hunterIconElement && siteData.statistics.hunter.tierIconURL) {
             hunterIconElement.src = siteData.statistics.hunter.tierIconURL;
         }
+
+        // Update historical stats
+        if (siteData.statistics.historical) {
+            const historicalSurvivorTierElement = document.querySelector('[data-i18n="historical_survivor_tier"]');
+            const historicalHunterTierElement = document.querySelector('[data-i18n="historical_hunter_tier"]');
+
+            // Only overwrite text if translation key is missing for current language
+            if (historicalSurvivorTierElement) {
+                const hasTranslation = !!translations[currentLanguage]?.historical_survivor_tier;
+                if (!hasTranslation) {
+                    historicalSurvivorTierElement.textContent = siteData.statistics.historical.survivor.tier;
+                }
+            }
+            if (historicalHunterTierElement) {
+                const hasTranslation = !!translations[currentLanguage]?.historical_hunter_tier;
+                if (!hasTranslation) {
+                    historicalHunterTierElement.textContent = siteData.statistics.historical.hunter.tier;
+                }
+            }
+            if (historicalSurvivorIconElement && siteData.statistics.historical.survivor.tierIconURL) {
+                historicalSurvivorIconElement.src = siteData.statistics.historical.survivor.tierIconURL;
+            }
+            if (historicalHunterIconElement && siteData.statistics.historical.hunter.tierIconURL) {
+                historicalHunterIconElement.src = siteData.statistics.historical.hunter.tierIconURL;
+            }
+        }
     }
     
+    // Update character knowledge points
+    if (siteData.characterKnowledge) {
+        const tableBody = document.querySelector('#character-knowledge tbody');
+        const row = tableBody.querySelector('tr');
+        
+        const highestBadgeCell = row.cells[0].querySelector('img');
+        const highestPointsCell = row.cells[0].querySelector('span');
+        const characterNameCell = row.cells[1];
+        const currentBadgeCell = row.cells[2].querySelector('img');
+
+        if (highestBadgeCell) highestBadgeCell.src = siteData.characterKnowledge.highest.badge;
+        if (highestPointsCell) highestPointsCell.textContent = `(${siteData.characterKnowledge.highest.points})`;
+        if (characterNameCell) {
+            // Prefer translation if available; otherwise fallback to data
+            if (translations[currentLanguage]?.fire_investigator_label) {
+                characterNameCell.textContent = translations[currentLanguage].fire_investigator_label;
+            } else {
+                characterNameCell.textContent = siteData.characterKnowledge.characterName;
+            }
+        }
+        if (currentBadgeCell) currentBadgeCell.src = siteData.characterKnowledge.current.badge;
+    }
+
     // Update favourite character
     if (siteData.favouriteCharacter) {
         const characterNameElement = document.querySelector('[data-i18n="character_name"]');
