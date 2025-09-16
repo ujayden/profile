@@ -10,11 +10,11 @@
     "survivor_label": "Survivor",
     "survivor_tier": "Tier VII",
     "hunter_label": "Hunter",
-    "hunter_tier": "Tier V - II",
+    "hunter_tier": "Tier VI - V",
     "historical_stats_title": "Historical Stats",
-    "historical_survivor_tier": "Tier VII - 0 Star(s)",
-    "historical_hunter_tier": "Tier V - II",
-    "last_updated": "Last updated: 13/09/2025",
+    "historical_survivor_tier": "Tier VII - 2 Star(s)",
+    "historical_hunter_tier": "Tier VI - V",
+    "last_updated": "Last updated: 16/09/2025",
     "character_knowledge_title": "Character Knowledge Points",
     "highest_label": "Highest",
     "character_name_label": "Character Name",
@@ -32,7 +32,6 @@
     "link_github": "GitHub",
     "link_threads": "Threads",
     "link_mail": "Mail",
-    "link_privacy": "Privacy Policy"
-    ,
+    "link_privacy": "Privacy Policy",
     "page_title": "uJayden's IdentityV Profile"
 }
