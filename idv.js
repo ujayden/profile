@@ -312,4 +312,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.warn("I see you opened the console. What are you looking for?");
-
