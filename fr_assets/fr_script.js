@@ -105,15 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                document.webkitFullscreenElement || 
                                document.mozFullScreenElement || 
                                document.msFullscreenElement);
-        
-        if (!isFullscreen && videoContainer.classList.contains('show')) {
-            // User exited fullscreen, try to re-enter after a short delay
-            setTimeout(() => {
-                if (videoContainer.classList.contains('show')) {
-                    requestFullscreen(videoContainer);
-                }
-            }, 2000);
-        }
+    
     }
 
     // Prevent right-click context menu on video

@@ -16,37 +16,37 @@
         "lastUpdated": "27/09/2025",
         "survivor": {
             "tier": "Tier V - I",
-            "tierIconURL": "idv_assets/s-5-trophy.png"
+            "tierIconURL": "idv_assets/images/s-5-trophy.png"
         },
         "hunter": {
             "tier": "Tier IV - I",
-            "tierIconURL": "idv_assets/h-4-trophy.png"
+            "tierIconURL": "idv_assets/images/h-4-trophy.png"
         },
         "historical": {
             "survivor": {
                 "tier": "Tier VII - 2 Star(s)",
-                "tierIconURL": "idv_assets/s-7-basic_trophy.png"
+                "tierIconURL": "idv_assets/images/s-7-basic_trophy.png"
             },
             "hunter": {
                 "tier": "Tier VI - V",
-                "tierIconURL": "idv_assets/h-6-trophy.png"
+                "tierIconURL": "idv_assets/images/h-6-trophy.png"
             }
         }
     },
     "characterKnowledge": {
         "highest": {
-            "badge": "idv_assets/Badge_Survivor_B.png",
+            "badge": "idv_assets/images/Badge_Survivor_B.png",
             "points": 7143
         },
         "current": {
-            "badge": "idv_assets/Badge_Survivor_C.png"
+            "badge": "idv_assets/images/Badge_Survivor_C.png"
         },
         "characterName": "Fire Investigator"
     },
     "favouriteCharacter": {
         "name": "Florian Brand, the Fire Investigator",
         "description": "This is my favourite character in Identity V. I love playing as Florian not only because he is cute and cool, but also because of his tragic backstory, which makes me sympathize with him. I also like his two-faced complexity and moral ambiguity, with his kindness and hidden darkness.\nAnyway, who doesn't love a cute Fire Investigator? 🔥",
-        "image": "idv_assets/florian_brand.gif"
+        "image": "idv_assets/images/florian_brand.gif"
     },
     "aboutMe": {
         "intro": "Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.",

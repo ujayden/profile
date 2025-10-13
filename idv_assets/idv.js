@@ -28,14 +28,14 @@ async function loadLanguages() {
         currentLanguage = detectBrowserLanguage();
         
         const [enResponse, tcResponse, dataResponse] = await Promise.all([
-            fetch('idv_language_en.json'),
-            fetch('idv_language_tc.json'),
-            fetch('idv_data.json')
+            fetch('/idv_assets/idv_language_en.json').then(res => res.json()),
+            fetch('/idv_assets/idv_language_tc.json').then(res => res.json()),
+            fetch('/idv_assets/idv_data.json').then(res => res.json())
         ]);
         
-        translations.en = await enResponse.json();
-        translations.tc = await tcResponse.json();
-        siteData = await dataResponse.json();
+        translations.en = enResponse;
+        translations.tc = tcResponse;
+        siteData = dataResponse;
         
         // Apply detected language and populate data
         applyLanguage(currentLanguage);

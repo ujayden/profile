@@ -798,8 +798,10 @@ body.overlay-dark::before {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('/idv_assets/background.PNG');
-  background-size: cover;
+  /* Fallback for browsers that don't support WEBP */
+  background-image: url('/idv_assets/images/background.PNG');
+  /* WEBP for better performance and faster LCP */
+  background-image: url('/idv_assets/images/background.webp');  background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   z-index: -2;

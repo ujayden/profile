@@ -7,7 +7,10 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url("idv_assets/background.PNG") no-repeat center center fixed;
+    /* Fallback for browsers that don't support WEBP */
+    background: url("/idv_assets/images/background.PNG") no-repeat center center fixed;
+    /* WEBP for better performance and faster LCP */
+    background: url("/idv_assets/images/background.webp") no-repeat center center fixed;
     background-size: cover;
     min-height: 100vh;
     overflow-x: hidden;
@@ -325,6 +328,10 @@ header h1 {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#Video1 {
+    width: 100%;
 }
 
 /* Media queries for footer */
