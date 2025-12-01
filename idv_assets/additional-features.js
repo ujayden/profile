@@ -49,7 +49,7 @@ function autoDeveloperMode(enableAutoDetect) {
         developerMode = true;
         loadMap = false;
         //Override loadMap:
-        //loadMap = true;
+        loadMap = true;
         console.log("Developer mode automatically enabled for origin:", window.location.hostname);
         return true;
     }
@@ -74,7 +74,7 @@ if (loadMap) {
 
     var topoBase = L.tileLayer('https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/WGS84/{z}/{x}/{y}.png', {
         maxZoom: 20,
-        attribution: '&copy; <a href="https://portal.csdi.gov.hk/" target="_blank">Lands Department - CSDI Portal</a>'
+        attribution: '&copy; <a href="https://portal.csdi.gov.hk/" target="_blank">Map from Lands Department</a>'
     });
 
     var topoLabels = L.tileLayer('https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/WGS84/{z}/{x}/{y}.png', {
@@ -85,6 +85,28 @@ if (loadMap) {
     topoLabels.addTo(map);
     L.marker(mapLocation).addTo(map)
         .openPopup();
+    
+    // Add Lands Department logo
+    L.Control.LandsLogo = L.Control.extend({
+        onAdd: function(map) {
+            var img = L.DomUtil.create('img');
+            img.src = '/libraries/leaflet/images/Lands_Department_logo.png';
+            img.style.width = '24px';
+            img.style.opacity = '0.6';
+            img.style.cursor = 'pointer';
+            img.title = 'Lands Department';
+            img.onclick = function() {
+                window.open('https://portal.csdi.gov.hk/', '_blank');
+            };
+            return img;
+        }
+    });
+    
+    L.control.landsLogo = function(opts) {
+        return new L.Control.LandsLogo(opts);
+    }
+    
+    L.control.landsLogo({ position: 'bottomright' }).addTo(map);
 }
 document.addEventListener('DOMContentLoaded', function() {
     const lightbox = GLightbox({

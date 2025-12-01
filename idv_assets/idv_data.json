@@ -13,13 +13,13 @@
         }
     },
     "statistics": {
-        "lastUpdated": "27/09/2025",
+        "lastUpdated": "1/12/2025",
         "survivor": {
-            "tier": "Tier V - I",
+            "tier": "Tier V - V",
             "tierIconURL": "idv_assets/images/s-5-trophy.png"
         },
         "hunter": {
-            "tier": "Tier IV - I",
+            "tier": "Tier IV - IV",
             "tierIconURL": "idv_assets/images/h-4-trophy.png"
         },
         "historical": {
@@ -35,7 +35,7 @@
     },
     "characterKnowledge": {
         "highest": {
-            "badge": "idv_assets/images/Badge_Survivor_B.png",
+            "badge": "idv_assets/images/Badge_Survivor_A.webp",
             "points": 7143
         },
         "current": {
