@@ -222,14 +222,14 @@ function updateLanguageButtons() {
     const tcBtn = document.getElementById('lang-tc');
     
     // Reset styles
-    enBtn.classList.remove('bg-white/40');
-    tcBtn.classList.remove('bg-white/40');
+    enBtn.classList.remove('bg-white/30', 'font-semibold');
+    tcBtn.classList.remove('bg-white/30', 'font-semibold');
     
-    // Add active style
+    // Add active style to current language
     if (currentLanguage === 'en') {
-        enBtn.classList.add('bg-white/40');
+        enBtn.classList.add('bg-white/30', 'font-semibold');
     } else {
-        tcBtn.classList.add('bg-white/40');
+        tcBtn.classList.add('bg-white/30', 'font-semibold');
     }
 }
 
@@ -288,15 +288,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load languages and data
     loadLanguages();
     
-    // Language switcher event listeners
-    document.getElementById('lang-en').addEventListener('click', () => {
+    // Language switcher event listeners (now in dropdown menu)
+    document.getElementById('lang-en').addEventListener('click', (e) => {
+        e.preventDefault();
         applyLanguage('en');
         populateData(); // Re-populate data for language-specific content
+        // Close dropdown by removing focus
+        document.activeElement.blur();
     });
     
-    document.getElementById('lang-tc').addEventListener('click', () => {
+    document.getElementById('lang-tc').addEventListener('click', (e) => {
+        e.preventDefault();
         applyLanguage('tc');
         populateData(); // Re-populate data for language-specific content
+        // Close dropdown by removing focus
+        document.activeElement.blur();
+    });
+
+    // Navigation links event listeners
+    document.querySelectorAll('.navigate-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = e.target.getAttribute('data-target');
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Smooth scroll to the target element
+                targetElement.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start',
+                    inline: 'nearest'
+                });
+                
+                // Close dropdown by removing focus
+                document.activeElement.blur();
+            }
+        });
     });
 
     // Copy ID button event listeners

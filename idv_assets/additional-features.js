@@ -41,11 +41,11 @@ if (loadMap) {
     }
     mapContainer.setAttribute('style', 'height: 400px; width: 100%; border-radius: 0.5rem; z-index: 0;');
     let mapLocation = [22.3040, 114.1790]; //PolyU
-    let map = L.map('map').setView(mapLocation, 17);
+    let map = L.map('map').setView(mapLocation, 14);
 
     var topoBase = L.tileLayer('https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/WGS84/{z}/{x}/{y}.png', {
         maxZoom: 20,
-        attribution: '<a href="https://www.landsd.gov.hk" target="_blank">© Map from Lands Department</a>'
+        attribution: '&copy; <a href="https://portal.csdi.gov.hk/" target="_blank">Lands Department - CSDI Portal</a>'
     });
 
     var topoLabels = L.tileLayer('https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/WGS84/{z}/{x}/{y}.png', {

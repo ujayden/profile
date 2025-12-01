@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "daisyui";
 /* Apply Montserrat font to the entire site */
 body {
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -90,4 +91,44 @@ body.overlay-dark::before {
     height: 100%;
     background: rgba(0, 0, 0, 0.2);
     z-index: -1;
+}
+
+/* Ensure header stays on top */
+header {
+    position: relative;
+    z-index: 1000;
+}
+
+/* Menu dropdown positioning */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute !important;
+    z-index: 1001 !important;
+}
+
+/* Dropdown menu glass effect - more opaque, less blur */
+.menu-glass {
+    backdrop-filter: blur(16px) saturate(180%) !important;   
+    background: rgba(120, 120, 120, 0.8) !important;
+}
+
+.menu-title {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+.menu-title:first-child {
+    margin-top: 0;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
 }
