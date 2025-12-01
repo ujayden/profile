@@ -49,7 +49,7 @@ function autoDeveloperMode(enableAutoDetect) {
         developerMode = true;
         loadMap = false;
         //Override loadMap:
-        loadMap = true;
+        //loadMap = true;
         console.log("Developer mode automatically enabled for origin:", window.location.hostname);
         return true;
     }
