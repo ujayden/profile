@@ -50,7 +50,7 @@
     "message_label": "Your Message",
     "menu_button": "Menu",
     "menu_language": "Language",
-    "menu_navigate": "Navigate to",
+    "menu_navigate": "Go to",
     "nav_profile": "Profile",
     "nav_stats": "Statistics",
     "nav_character_knowledge": "Character Knowledge",
@@ -64,5 +64,8 @@
     "privacy_policy_link": "Privacy Policy",
     "and_text": " and ",
     "terms_of_service_link": "Terms of Service",
-    "submit_button": "Send Message"
+    "submit_button": "Send Message",
+    "profile_screenshot_caption": "Too small? Click the image to view full size.",
+    "faq_gender_q": "What is your gender?",
+    "faq_gender_a": "I am male."
 }

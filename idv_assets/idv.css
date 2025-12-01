@@ -99,6 +99,20 @@ header {
     z-index: 1000;
 }
 
+/* Header container styling */
+header .glass-enhanced {
+    animation: none; /* Disable animation for header */
+    opacity: 1;
+}
+
+/* Menu button on mobile - show icon only or with text */
+@media (max-width: 640px) {
+    #menu-dropdown .btn {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+}
+
 /* Menu dropdown positioning */
 .dropdown {
     position: relative;
@@ -112,7 +126,7 @@ header {
 /* Dropdown menu glass effect - more opaque, less blur */
 .menu-glass {
     backdrop-filter: blur(16px) saturate(180%) !important;   
-    background: rgba(120, 120, 120, 0.8) !important;
+    background: rgba(120, 120, 120, 0.9) !important;
 }
 
 .menu-title {

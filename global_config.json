@@ -3,7 +3,7 @@
     "lastUpdate": "2025-11-30",
     "features": {
         "fullsiteGrayscale": {
-            "enabled": true,
+            "enabled": false,
             "description": "When large incidents occur, enable a full-site grayscale mode to express memorial and respect.",
             "enablebydate": true,
             "enableDateList": [

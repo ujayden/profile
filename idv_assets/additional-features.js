@@ -1,4 +1,5 @@
 'use strict';
+let developerMode = false;
 // Load global_config and use its data if needed
 fetch('/global_config.json')
     .then(response => response.json())
@@ -32,8 +33,36 @@ fetch('/global_config.json')
         console.error("Error loading global config:", error);
     }
 );
-
 let loadMap = true;
+// Check origin to determine developer mode - If yes, disable google analytics
+function autoDeveloperMode(enableAutoDetect) {
+    if (!enableAutoDetect) {
+        return false;
+    }
+    const devOrigins = [
+        "localhost",
+        "l.ujayden.com",
+        "127.0.0.1"
+    ];
+    // Yes - Disable google analytics + map load
+    if (devOrigins.includes(window.location.hostname)) {
+        developerMode = true;
+        loadMap = false;
+        //Override loadMap:
+        //loadMap = true;
+        console.log("Developer mode automatically enabled for origin:", window.location.hostname);
+        return true;
+    }
+    return false;
+}
+
+// Auto-detect developer mode on page load
+autoDeveloperMode(true);
+
+if (developerMode) {
+    console.log("Developer mode is enabled. Google Analytics and certain features are disabled.");
+}
+
 if (loadMap) {
     let mapContainer = document.getElementById('map');
     if (!mapContainer) {
@@ -57,5 +86,19 @@ if (loadMap) {
     L.marker(mapLocation).addTo(map)
         .openPopup();
 }
-
+document.addEventListener('DOMContentLoaded', function() {
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        autoplayVideos: false
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    if (!developerMode) {
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YCECGQET86');
+    }
+});
 console.log("Additional features script loaded.");

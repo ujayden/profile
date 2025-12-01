@@ -35,7 +35,7 @@
     "link_privacy": "隱私權政策",
     "page_title": "uJayden 的第五檔案",
     "where_am_i_title": "我在哪裡？",
-    "where_am_i_description": "我是香港人，所以我當然是在香港啦。",
+    "where_am_i_description": "我是香港人，所以我當然是在香港。",
     "more_info_title": "更多資訊",
     "faq_add_friend_q": "我可以在遊戲內加你好友嗎？",
     "faq_add_friend_a": "當然可以！請在好友申請訊息中說明原因，讓我知道你是誰。",
@@ -50,7 +50,7 @@
     "message_label": "你的訊息",
     "menu_button": "選單",
     "menu_language": "語言",
-    "menu_navigate": "導航至",
+    "menu_navigate": "跳到",
     "nav_profile": "個人資料",
     "nav_stats": "統計資料",
     "nav_character_knowledge": "角色認知分",
@@ -64,5 +64,8 @@
     "privacy_policy_link": "隱私權政策",
     "and_text": "和",
     "terms_of_service_link": "服務條款",
-    "submit_button": "發送訊息"
+    "submit_button": "發送訊息",
+    "profile_screenshot_caption": "點擊可以縮放並查看完整大小",
+    "faq_gender_q": "你的性別是什麼？",
+    "faq_gender_a": "我是男的。"
 }

@@ -10,8 +10,11 @@
     <!--<link rel="stylesheet" href="/idv_assets/idv.css">-->
     <script src="/idv_assets/idv.js" defer></script>
     <link rel="stylesheet" href="/idv_assets/idv_tw.css">
-    <link rel="stylesheet" href="/idv_assets/leaflet.css">
-    <script src="/idv_assets/leaflet.js" defer></script>
+    <link rel="stylesheet" href="/libraries/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/libraries/glightbox/glightbox.min.css">
+    <link rel="stylesheet" href="/idv_assets/additional-features-styling.css">
+    <script src="/libraries/glightbox/glightbox.min.js" defer></script>
+    <script src="/libraries/leaflet/leaflet.js" defer></script>
     <script src="/idv_assets/additional-features.js" defer></script>
     <link rel="preload" href="/idv_assets/idv_language_en.json" as="fetch" crossorigin="anonymous">
     <link rel="preload" href="/idv_assets/idv_language_tc.json" as="fetch" crossorigin="anonymous">
@@ -27,25 +30,26 @@
 </head>
 <body class="min-h-screen overlay-dark">
     <header class="p-4 sm:p-6">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center max-w-6xl gap-4 sm:gap-6 mx-auto">
-            <!-- Hello Message - Left Side -->
-            <div id="helloMsg" class="glass-enhanced rounded-2xl p-4 shadow-lg w-full sm:w-auto">
-                <p data-i18n="hello_message" class="text-white text-lg sm:text-xl font-semibold text-center sm:text-left">Hi, I am uJayden</p>
-            </div>
-            
-            <!-- Menu Dropdown - Right Side -->
-            <div id="menu-dropdown" class="glass-enhanced rounded-2xl p-2 shadow-lg w-full sm:w-auto">
-                <div class="dropdown dropdown-end w-full sm:w-auto">
-                    <button tabindex="0" role="button" class="btn btn-ghost text-white hover:bg-white/20 min-h-0 h-10 px-4 w-full sm:w-auto" aria-label="Open menu">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                        <span class="ml-2" data-i18n="menu_button">Menu</span>
-                    </button>
-                    <ul tabindex="0" class="dropdown-content menu menu-glass rounded-lg z-[1000] w-52 p-4 shadow-xl border border-white/30 mt-2">
+        <div class="glass-enhanced rounded-2xl shadow-lg p-4 max-w-6xl mx-auto">
+            <div class="flex justify-between items-center gap-4">
+                <!-- Hello Message - Left Side -->
+                <div id="helloMsg" class="flex-1">
+                    <p data-i18n="hello_message" class="text-white text-lg sm:text-xl font-semibold">Hi, I am uJayden</p>
+                </div>
+                
+                <!-- Menu Dropdown - Right Side -->
+                <div id="menu-dropdown" class="flex-shrink-0">
+                    <div class="dropdown dropdown-end">
+                        <button tabindex="0" role="button" class="btn btn-ghost text-white hover:bg-white/20 min-h-0 h-10 px-4" aria-label="Open menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <span class="ml-2 hidden sm:inline" data-i18n="menu_button">Menu</span>
+                        </button>
+                        <ul tabindex="0" class="dropdown-content menu menu-glass rounded-lg z-[1000] w-52 p-4 shadow-xl border border-white/30 mt-2">
                         <!-- Language Section -->
                         <li class="menu-title">
-                            <span data-i18n="menu_language" class="text-white/80">Language</span>
+                            <span class="text-white/80">Language / 語言</span>
                         </li>
                         <li><a id="lang-en" class="text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-lang="en">English</a></li>
                         <li><a id="lang-tc" class="text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-lang="tc">中文</a></li>
@@ -55,7 +59,7 @@
                         
                         <!-- Navigate Section -->
                         <li class="menu-title">
-                            <span data-i18n="menu_navigate" class="text-white/80">Navigate to</span>
+                            <span data-i18n="menu_navigate" class="text-white/80">Go to</span>
                         </li>
                         <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="profile" data-i18n="nav_profile">Profile</a></li>
                         <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="stats" data-i18n="nav_stats">Statistics</a></li>
@@ -112,6 +116,13 @@
                                 </button>
                             </p>
                         </div>
+                    </div>
+                    <!-- Profile Screenshots Section -->
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20">
+                        <a href="idv_assets/images/profile.jpg" class="glightbox" data-gallery="profile-screenshots">
+                            <img src="idv_assets/images/profile.jpg" alt="Profile Screenshot Asia Server" class="w-full h-auto object-cover rounded-lg mb-4 border-2 border-white/40 shadow-lg cursor-pointer hover:opacity-90 transition-opacity">
+                        </a>
+                        <p data-i18n="profile_screenshot_caption" class="text-white/80 text-sm">Too small? Click the image to view full size.</p>
                     </div>
                 </div>
             </div>
@@ -215,7 +226,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Favourite Character Section - Right Aligned -->
         <div class="flex justify-end">
             <div id="favourite-character" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
@@ -287,6 +297,10 @@
                         <h2 data-i18n="faq_reply_time_q">How long do you need to reply to my messages?</h2>
                         <p data-i18n="faq_reply_time_a1">It depends on my time schedule. Usually I will reply within a few hours, but sometimes it may take longer.</p>
                         <p data-i18n="faq_reply_time_a2">Please don't frustrate if I don't reply immediately, I may be busy with my studies or other things. OvO</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20 mt-4">
+                        <h2 data-i18n="faq_gender_q">What is your gender?</h2>
+                        <p data-i18n="faq_gender_a">I am male.</p>
                     </div>
                 </div>
             </div>
@@ -363,12 +377,5 @@
     </main>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCECGQET86"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-YCECGQET86');
-    </script>
 </body>
 </html>
