@@ -1,3 +1,4 @@
+'use strict';
 // Language switching functionality
 let currentLanguage = 'en';
 let translations = {};
@@ -297,7 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
         applyLanguage('tc');
         populateData(); // Re-populate data for language-specific content
     });
-    
+
     // Copy ID button event listeners
     document.addEventListener('click', async function(e) {
         if (e.target.classList.contains('copy-id-btn')) {
@@ -310,38 +311,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize language buttons
     updateLanguageButtons();
 });
-
-// Load global_config and use its data if needed
-fetch('/global_config.json')
-    .then(response => response.json())
-    .then(globalConfig => {
-        // Check for fullsite grayscale feature
-        if (globalConfig.features?.fullsiteGrayscale?.enabled) {
-            const grayscaleConfig = globalConfig.features.fullsiteGrayscale;
-            let shouldApplyGrayscale = false;
-
-            if (grayscaleConfig.enablebydate) {
-                const now = new Date();
-                const dateList = grayscaleConfig.enableDateList || [];
-                
-                shouldApplyGrayscale = dateList.some(period => {
-                    const startDate = new Date(period.startDateTime);
-                    const endDate = new Date(period.endDateTime);
-                    return now >= startDate && now <= endDate;
-                });
-            } else {
-                // If enablebydate is false but enabled is true, always apply
-                shouldApplyGrayscale = true;
-            }
-
-            if (shouldApplyGrayscale) {
-                document.documentElement.style.filter = 'grayscale(60%)';
-                document.documentElement.style.webkitFilter = 'grayscale(60%)';
-            }
-        }
-    })
-    .catch(error => {
-        console.error("Error loading global config:", error);
-    });
 
 console.warn("I see you opened the console. What are you looking for?");
