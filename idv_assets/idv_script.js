@@ -1,5 +1,21 @@
 'use strict';
 let AUTO_DETECT_DEV_MODE = true; // Set to false to disable auto-detection of developer mode
+
+// Drawer close on internal link click
+document.addEventListener('DOMContentLoaded', () => {
+    const drawerLinks = document.querySelectorAll('.drawer-side .menu a');
+    const drawerToggle = document.getElementById('my-drawer');
+    if (drawerToggle && drawerLinks.length > 0) {
+        drawerLinks.forEach(link => {
+            if (link.getAttribute('href').startsWith('#') || link.getAttribute('href') === '/') {
+                link.addEventListener('click', () => {
+                    drawerToggle.checked = false;
+                });
+            }
+        });
+    }
+});
+
 window.addEventListener('scroll', function() {
     const nav = document.querySelector('nav');
     if (window.scrollY > 50) {
