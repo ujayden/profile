@@ -144,7 +144,7 @@ nav ul li a {
 }
 
 /* Footer Link Styles */
-footer a {
+footer a, .faq-link {
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -153,11 +153,12 @@ footer a {
     justify-content: center;
 }
 
-footer a:hover {
+footer a:hover, .faq-link:hover {
     transform: translateY(-2px);
+    color: var(--color-blue-400, #60a5fa);
 }
 
-footer a::after {
+footer a::after, .faq-link::after {
     content: "";
     position: absolute;
     left: 0;
@@ -168,11 +169,11 @@ footer a::after {
     transition: width 0.3s ease;
 }
 
-footer a:hover::after {
+footer a:hover::after, .faq-link:hover::after {
     width: 100%;
 }
 
-footer a:focus {
+footer a:focus, .faq-link:focus {
     outline: 2px dashed currentColor;
     outline-offset: 3px;
 }
