@@ -3,15 +3,11 @@
     "lastUpdate": "2025-11-30",
     "features": {
         "fullsiteGrayscale": {
-            "enabled": true,
+            "enabled": false,
             "description": "When large incidents occur, enable a full-site grayscale mode to express memorial and respect.",
             "enablebydate": true,
             "enableDateList": [
-                {
-                    "startDateTime": "2025-11-29T08:00:00Z",
-                    "endDateTime": "2025-12-04T08:00:00Z",
-                    "description": "HK"
-                }
+
             ]
         },
         "cookieConsentBanner": {
@@ -26,10 +22,10 @@
             "enabled": false,
             "description": "Display a maintenance mode warning banner when the site is under maintenance."
         },
-        "annoucement": {
+        "announcement": {
             "enabled": false,
             "description": "Display an announcement banner for important updates or news.",
-            "apiURL": "https://api.ujayden.com/v1/annoucement/global",
+            "apiURL": "https://api.ujayden.com/v1/announcement",
             "useRemote": false,
             "messages": [
                 {

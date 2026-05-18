@@ -74,7 +74,7 @@ if (loadMap) {
 
     var topoBase = L.tileLayer('https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/WGS84/{z}/{x}/{y}.png', {
         maxZoom: 20,
-        attribution: '&copy; <a href="https://portal.csdi.gov.hk/" target="_blank">Map from Lands Department</a>'
+        attribution: '&copy; <a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank">Map from Lands Department</a>'
     });
 
     var topoLabels = L.tileLayer('https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/WGS84/{z}/{x}/{y}.png', {
@@ -96,7 +96,7 @@ if (loadMap) {
             img.style.cursor = 'pointer';
             img.title = 'Lands Department';
             img.onclick = function() {
-                window.open('https://portal.csdi.gov.hk/', '_blank');
+                window.open('https://api.portal.hkmapservice.gov.hk/disclaimer', '_blank');
             };
             return img;
         }

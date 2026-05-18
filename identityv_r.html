@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="uJayden's IdentityV Profile" />
+    <meta property="og:description" content="See my IdentityV profile, including statistics and more!" />
+    <meta property="og:image" content="https://hub.ujayden.com/idv_assets/images/hero_image.webp" />
+    <meta property="og:url" content="https://hub.ujayden.com/identityv" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow">
+    <title data-i18n="page_title">uJayden's IdentityV Profile</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <script src="/idv_assets/idv_script.js" defer></script>
+    <link rel="stylesheet" href="/idv_assets/styles_tailwind.css">
+    <link rel="stylesheet" href="/libraries/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/libraries/glightbox/glightbox.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <script src="/libraries/glightbox/glightbox.min.js" defer></script>
+    <script src="/libraries/leaflet/leaflet.js" defer></script>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/" data-i18n="nav_home">Home</a></li>
+            <li><a href="#profile-card" data-i18n="nav_profile_card">Profile Card</a></li>
+            <li><a href="#gameplay-stats" data-i18n="nav_gameplay_stats">Stats</a></li>
+            <li><a href="#about" data-i18n="nav_about">About</a></li>
+        </ul>
+        <ul>
+            <li><a href="https://ujayden.com" target="_blank">Site</a></li>
+            <li><a href="https://tools.ujayden.com/" target="_blank">Toolbox</a></li>
+            <li class="relative flex items-center">
+                <a tabindex="0" role="button" aria-label="Language" class="hover:text-current !flex items-center peer cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></a>
+                <div class="absolute right-0 top-full pt-2 hidden peer-hover:block peer-focus:block hover:block focus-within:block z-[1]">
+                    <ul class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0">
+                        <li class="m-0 p-0"><a data-lang="en" class="!my-0 rounded-none">English</a></li>
+                        <li class="m-0 p-0"><a data-lang="zh-tw" class="!my-0 rounded-none">繁體中文</a></li>
+                        <li class="m-0 p-0"><a data-lang="zh-cn" class="!my-0 rounded-none">简体中文</a></li>
+                        <li class="m-0 p-0"><a data-lang="ja" class="!my-0 rounded-none">日本語</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+<section>
+    <div id="hero">
+        <div class="hero-gradient-overlay"></div>
+        <div class="hero-bottom-fade"></div>
+        <img src="/idv_assets/images/hero_image.webp">
+        <div class="hero-content h-full w-full">
+            <h2>Hello!</h2>
+            <h1>I'm <span class="text-blue-400">uJayden</span></h1>
+            <p>An IdentityV player</p>
+        </div>
+    </div>
+    <section id="profile-card" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start overflow-hidden">
+        <div class="md:w-1/3 shrink-0">
+            <h1 data-i18n="profile_card_title" class="section-heading">Profile Card</h1>
+        </div>
+        <div class="md:w-2/3 flex flex-col gap-8 w-full min-w-0">
+            <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 min-h-0 flex flex-col lg:flex-row gap-8 items-center">
+                <div class="space-y-4 flex-1 min-w-0 w-full">
+                    <div class="rounded-lg border border-white/10 bg-zinc-900/70 p-4 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 min-h-0">
+                        <p class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Asia Server</p>
+                        <h2 class="text-lg font-semibold tracking-tight text-zinc-100">火災調查員฀</h2>
+                        <div class="mt-4 flex items-center gap-2 text-sm leading-7 text-zinc-400">
+                            <span>ID:</span>
+                            <span class="font-mono text-zinc-400">16938170</span>
+                            <div class="tooltip tooltip-top" data-tip="Copy ID for Asia server">
+                                <button data-copy-id="16938170" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for Asia server">
+                                    <i class="ti ti-copy text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border border-white/10 bg-zinc-900/70 p-4 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 min-h-0">
+                        <p class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">China Server</p>
+                        <h2 class="text-lg font-semibold tracking-tight text-zinc-100">哈基火灾调查员</h2>
+                        <div class="mt-4 flex items-center gap-2 text-sm leading-7 text-zinc-400">
+                            <span>ID:</span>
+                            <span class="font-mono text-zinc-400">301080114</span>
+                            <div class="tooltip tooltip-top" data-tip="Copy ID for China server">
+                                <button data-copy-id="301080114" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for China server">
+                                    <i class="ti ti-copy text-base"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shrink-0 w-40 md:w-48 lg:w-56 flex items-center justify-center">
+                    <img src="/idv_assets/images/florian_spraying.webp" alt="Florian Spraying" class="w-full h-auto object-contain drop-shadow-md">
+                </div>
+            </div>
+                <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 w-full min-h-0">
+                    <a href="/idv_assets/images/profile.jpg" class="glightbox block overflow-hidden">
+                        <img src="/idv_assets/images/profile.jpg" alt="In-game Profile" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+                    </a>
+                </div>
+        </div>
+    </section>
+    <section id="gameplay-stats" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+        <div class="md:w-1/3 shrink-0">
+            <h1 data-i18n="gameplay_stats_title" class="section-heading">Gameplay Stats</h1>
+            <p class="mt-2 text-s font-medium uppercase tracking-[0.14em] text-zinc-500">Updated: Dec 1, 2025</p>
+        </div>
+        <div class="md:w-2/3 flex flex-col gap-8 w-full">
+            <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-6 min-h-0 w-full flex flex-col gap-10">
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Current Season</h2>
+                    <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
+                        <div class="flex-1 flex items-center gap-4">
+                            <img src="/idv_assets/images/s-5-trophy.png" alt="Survivor Tier" class="w-16 h-16 object-contain drop-shadow-md">
+                            <div>
+                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
+                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier V - I</h3>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
+                        <div class="flex-1 flex items-center gap-4">
+                            <img src="/idv_assets/images/h-4-trophy.png" alt="Hunter Tier" class="w-16 h-16 object-contain drop-shadow-md">
+                            <div>
+                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
+                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier IV - I</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Historical Peak</h2>
+                    <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
+                        <div class="flex-1 flex items-center gap-4">
+                            <img src="/idv_assets/images/s-7-basic_trophy.png" alt="Historical Survivor Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md">
+                            <div>
+                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
+                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VII - 2 Star(s)</h3>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
+                        <div class="flex-1 flex items-center gap-4">
+                            <img src="/idv_assets/images/h-6-trophy.png" alt="Historical Hunter Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md">
+                            <div>
+                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
+                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VI - V</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 min-h-0 w-full">
+                <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-4">Character Knowledge</h2>
+                <div class="flex flex-col gap-3">
+                    <div class="rounded-lg bg-zinc-900/70 border border-white/5 py-3 px-5 w-full flex flex-col md:flex-row gap-4 items-center justify-between">
+                        <div class="flex-1 w-full text-center md:text-left">
+                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Fire Investigator</h3>
+                        </div>
+                        <div class="flex flex-row gap-4 md:gap-6 items-center shrink-0">
+                            <div class="flex flex-col items-center md:items-start gap-1">
+                                <p class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Current</p>
+                                <div class="flex flex-row items-center gap-2">
+                                    <img src="/idv_assets/images/Badge_Survivor_C.png" alt="Current Badge" class="h-8 w-auto object-contain drop-shadow-md">
+                                    <span class="text-sm font-semibold text-zinc-600">-</span>
+                                </div>
+                            </div>
+                            <div class="w-px h-8 bg-white/10 self-stretch my-auto"></div>
+                            <div class="flex flex-col items-center md:items-start gap-1">
+                                <p class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Highest</p>
+                                <div class="flex flex-row items-center gap-2">
+                                    <img src="/idv_assets/images/Badge_Survivor_A.webp" alt="Highest Badge" class="h-8 w-auto object-contain drop-shadow-md">
+                                    <span class="text-sm font-semibold text-zinc-300">7,143 pts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+        <div class="md:w-1/3 shrink-0">
+            <h1 data-i18n="about_title" class="section-heading">About Me</h1>
+        </div>
+        <div class="md:w-2/3 text-lg leading-relaxed font-mono text-gray-300">
+            <p>Hi! I'm uJayden, I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.</p>
+        </div>
+    </section>
+    <section id="message-box" class="section">
+        <h1 data-i18n="message_box_title" class="section-heading">Leave a Message</h1>
+    </section>
+    <footer class="flex flex-col md:flex-row justify-between items-start md:items-end footer pt-10 pb-0 px-16 lg:px-48 bg-base-200 text-base-content border-t border-gray-500/30">
+        <aside class="pb-10 w-full md:w-auto">
+            <h3 class="text-xl font-bold">uJayden</h3>
+            <p class="text-sm">An IdentityV player</p>
+            <p class="text-sm">Note: This profile site is not affiliated with NetEase or IdentityV.</p>
+            <div class="flex flex-wrap gap-4 mt-4 text-xl">
+                <a href="https://blog.ujayden.com" target="_blank" title="Blog"><i class="ti ti-news"></i></a>
+                <a href="mailto:admin@ujayden.com" target="_blank" title="Email"><i class="ti ti-mail"></i></a>
+                <a href="https://github.com/uJayden" target="_blank" title="GitHub"><i class="ti ti-brand-github"></i></a>
+                <a href="https://x.com/ujayden_" target="_blank" title="X"><i class="ti ti-brand-x"></i></a>
+                <a href="https://threads.net/@ujayden_00" target="_blank" title="Threads"><i class="ti ti-brand-threads"></i></a>
+                <a href="https://ujayden.com/privacy_policy" target="_blank" title="Privacy Policy"><i class="ti ti-shield-lock"></i></a>
+                <div class="tooltip" data-tip="Site design inspired by RyanFitzgerald/devportfolio (MIT licensed)">
+                    <a href="https://github.com/RyanFitzgerald/devportfolio" target="_blank" title="Inspiration"><i class="ti ti-book-2"></i></a>
+                </div>
+            </div>
+                <p class="mt-4 text-sm text-zinc-500">&copy; 2026 uJayden. All rights reserved.</p>
+                <p class="text-xs text-zinc-500">Information may not be up-to-date. Privacy Policy applies.</p>
+                <p class="text-xs text-zinc-500">Image credits to their respective owners (i.e. NetEase).</p>
+                <p class="text-xs text-zinc-500">Last updated: May 20, 2026. Site version: 2.0</p>
+        </aside>
+        <img src="/idv_assets/images/florian_investigating.webp" alt="Florian Investigating" class="hidden md:block w-64 h-auto object-contain drop-shadow-md ml-auto">
+    </footer>
+</section>
+<!-- First Copy Request Alert -->
+<div class="toast toast-top toast-center z-40 mt-16 pointer-events-none" style="display: none;" id="toast_container">
+    <div id="first_copy_alert" class="alert bg-zinc-900 border border-blue-500/30 text-zinc-300 shadow-2xl transition-all duration-500 ease-out -translate-y-10 opacity-0">
+        <i class="ti ti-info-circle text-blue-400 text-2xl"></i>
+        <div class="text-left font-sans">
+            <h3 class="font-bold text-zinc-100">Copied to clipboard! But......</h3>
+            <div class="text-xs">Please remember to clarify who you are or state the reason for the friend request.</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

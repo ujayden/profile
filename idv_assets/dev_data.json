@@ -1,0 +1,163 @@
+{
+    "version": "2.0",
+    "updatedAt": "2025-09-16T00:00:00Z",
+    "meta": {
+        "hello_message": "Hi, I am uJayden",
+        "page_title": "uJayden's IdentityV Profile",
+        "last_updated": "Last updated: 27/09/2025"
+    },
+    "navigation": {
+        "profile_title": "Profile",
+        "stats_title": "Statistics",
+        "character_knowledge_title": "Character Knowledge",
+        "favourite_character_title": "Favourite Character",
+        "about_me_title": "About Me",
+        "where_am_i_title": "Where am I?",
+        "fun_facts_title": "Fun Facts",
+        "more_info_title": "More Information",
+        "links": "Links"
+    },
+    "labels": {
+        "name": "Name:",
+        "asia_server": "Asia Server",
+        "china_server": "China Server",
+        "ign": "IGN:",
+        "id": "ID:",
+        "survivor": "Survivor",
+        "hunter": "Hunter",
+        "highest": "Highest",
+        "current": "Current",
+        "role": "Role"
+    },
+    "profile": {
+        "mainName": "uJayden",
+        "accounts": [
+            {
+                "server": "asia",
+                "ign": "火災調查員฀",
+                "id": "16938170"
+            },
+            {
+                "server": "china",
+                "ign": "哈基火灾调查员",
+                "id": "301080114"
+            }
+        ],
+        "socialLinks": {
+            "blog": "https://www.ujayden.com/",
+            "github": "https://github.com/ujayden",
+            "threads": "https://www.threads.com/@ujayden_00",
+            "instagram": "https://www.instagram.com/ujayden_00",
+            "x": "https://x.com/ujayden_",
+            "discord": "ujayden",
+            "mail": "mailto:admin@ujayden.com",
+            "privacy": "https://www.ujayden.com/privacy-policy/"
+        },
+        "about_me_intro": "Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.",
+        "about_me_gaming": "When I'm not playing Identity V, I will do something related to programming, such as coding and maintaining my website, even I am a LSGI student. I also play some games such as Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included and The Sims 4. I look forward to a friendly discussion about IdentityV! About CP: I don't ship nor oppose any CP.",
+        "where_am_i_description": "I am a Hong Konger, so of course I am in Hong Kong right now.",
+        "fun_facts": [
+            "uJayden's \"u\" is stand for uncle.",
+            "Previous name is uncle-jayden, but it's too long to type so I shorten it to uJayden."
+        ]
+    },
+    "statistics": {
+        "updatedAt": "2025-12-01T00:00:00Z",
+        "survivor": {
+            "current": {
+                "tierCode": "5-5",
+                "iconURL": "idv_assets/images/s-5-trophy.png"
+            },
+            "historical": {
+                "tierCode": "7-2",
+                "iconURL": "idv_assets/images/s-7-basic_trophy.png"
+            }
+        },
+        "hunter": {
+            "current": {
+                "tierCode": "4-4",
+                "iconURL": "idv_assets/images/h-4-trophy.png"
+            },
+            "historical": {
+                "tierCode": "6-5",
+                "iconURL": "idv_assets/images/h-6-trophy.png"
+            }
+        },
+        "historical_stats_title": "Historical Stats",
+        "survivor_tier": "Tier V - I",
+        "hunter_tier": "Tier IV - I",
+        "historical_survivor_tier": "Tier VII - 2 Star(s)",
+        "historical_hunter_tier": "Tier VI - V"
+    },
+    "characters": {
+        "favourite": {
+            "id": "fire_investigator",
+            "imageURL": "idv_assets/images/florian_brand.gif"
+        },
+        "knowledge": [
+            {
+                "characterId": "fire_investigator",
+                "current": {
+                    "badgeIcon": "idv_assets/images/Badge_Survivor_C.png",
+                    "points": null
+                },
+                "highest": {
+                    "badgeIcon": "idv_assets/images/Badge_Survivor_A.webp",
+                    "points": 7143
+                }
+            }
+        ],
+        "fire_investigator": {
+            "name": "Florian Brand, the Fire Investigator",
+            "title": "Fire Investigator",
+            "description": "This is my favourite character in Identity V. I love playing as Florian not only because he is cute and cool, but also because of his tragic backstory, which makes me sympathize with him. I also like his two-faced complexity and moral ambiguity, with his kindness and hidden darkness.\nAnyway, who doesn't love a cute Fire Investigator? 🔥",
+            "role": "Hunter",
+            "difficulty": "Advanced"
+        }
+    },
+    "ui": {
+        "menu_button": "Menu",
+        "menu_language": "Language",
+        "menu_navigate": "Go to",
+        "private_message_title": "Send me a private message",
+        "message_label": "Your Message",
+        "message_placeholder": "Type your message here...",
+        "submit_button": "Send Message",
+        "agree_terms_text": "I have read and agree to the ",
+        "and_text": " and ",
+        "profile_screenshot_caption": "Too small? Click the image to view full size."
+    },
+    "links": {
+        "blog": "Blog",
+        "github": "GitHub",
+        "threads": "Threads",
+        "instagram": "Instagram",
+        "x": "X (Twitter)",
+        "discord": "Discord",
+        "mail": "Mail",
+        "privacy": "Privacy Policy",
+        "terms_of_service": "Terms of Service"
+    },
+    "faq": [
+        {
+            "question": "Can I add your friend in the game?",
+            "answer": "Yes, sure! Please add your reason in the friend request message so that I know who you are."
+        },
+        {
+            "question": "How often do you update this profile?",
+            "answer": "I usually update this profile every 1-3 months, depending on my time schedule and how much my stats change."
+        },
+        {
+            "question": "Can I add your friend on Discord / Instagram?",
+            "answer": "Not suggested (until we get to know each other better)."
+        },
+        {
+            "question": "How long do you need to reply to my messages?",
+            "answer": "It depends on my time schedule. Usually I will reply within a few hours, but sometimes it may take longer. Please don't frustrate if I don't reply immediately, I may be busy with my studies or other things. OvO"
+        },
+        {
+            "question": "What is your gender?",
+            "answer": "I am male."
+        }
+    ]
+}

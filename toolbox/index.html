@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Web Tools Directory</title>
+    <meta property="og:title" content="Web Tools Directory">
+    <meta property="og:description" content="A directory of useful web tools to solve small but annoying problems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hub.ujayden.com/toolbox/">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Ver 1.0 14 June 2024-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:wght@400;500;600;700&display=swap');
+        body {
+            background-color: #f1f1f1;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            position: relative;
+            touch-action: manipulation;
+        }
+        #mainContent {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 1000px;
+            position: relative;
+        }
+        h1 {
+            color: #000;
+            font-weight: 500;
+            margin-top: 40px;
+        }
+        h2 {
+            color: #000;
+            font-weight: 600;
+            font-size: 1.4em;
+            margin-top: 30px;
+        }
+        p {
+            color: #000;
+            font-weight: 400;
+        }
+        .card {
+            border: 2px solid #000;
+            -webkit-box-shadow: 5px 5px 0 2px rgba(0, 0, 0, .6);
+            box-shadow: 5px 5px 0 2px rgba(0, 0, 0, .6);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-title {
+            font-weight: 600;
+        }
+        .card-text {
+            font-weight: 400;
+        }
+        .card-footer {
+            background-color: rgba(0,0,0,0.05);
+            border-top: 1px solid rgba(0,0,0,0.125);
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            border: 2px solid #000;
+            color: #000;
+            border-radius: 6px;
+            padding: 8px 16px;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #0056cc;
+            border: 2px solid #0056cc;
+            color: #fff;
+            transition: all .3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #fff;
+            color: #0056cc;
+            border-color: #0056cc;
+        }
+        .btn-outline-primary {
+            background-color: transparent;
+            border: 2px solid #0056cc;
+            color: #0056cc;
+            transition: all .3s ease;
+        }
+        .btn-outline-primary:hover {
+            background-color: #0056cc;
+            color: #fff;
+        }
+        .category-header {
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        /* Loading spinner */
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 50px 0;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: #0056cc;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .error-container {
+            background-color: #f8d7da;
+            border: 2px solid #f5c6cb;
+            border-radius: 4px;
+            padding: 20px;
+            margin: 30px 0;
+            color: #721c24;
+        }
+        
+        .error-container h3 {
+            margin-top: 0;
+            color: #721c24;
+        }
+        
+        .retry-button {
+            margin-top: 15px;
+        }
+        
+        /* Toast notification */
+        .toast-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1050;
+        }
+        
+        .toast {
+            min-width: 250px;
+        }
+        
+        /* Filter styles */
+        .filter-container {
+            margin: 20px 0 30px 0;
+        }
+        
+        .filter-select {
+            padding: 8px 16px;
+            border: 2px solid #000;
+            border-radius: 6px;
+            background-color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            min-width: 200px;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+        
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #252629;
+                color: #ffffff;
+            }
+            h1, h2, p, .card-title, .card-text {
+                color: #ffffff;
+            }
+            .card {
+                background-color: #333;
+                border-color: #555;
+            }
+            .card-footer {
+                background-color: rgba(255,255,255,0.05);
+                border-top-color: rgba(255,255,255,0.125);
+            }
+            .btn {
+                border-color: #fff;
+                color: #fff;
+            }
+            .btn-primary {
+                background-color: #0078ff;
+                border-color: #0078ff;
+            }
+            .btn-primary:hover {
+                background-color: transparent;
+                color: #86d9fc;
+                border-color: #86d9fc;
+            }
+            .btn-outline-primary {
+                border-color: #86d9fc;
+                color: #86d9fc;
+            }
+            .btn-outline-primary:hover {
+                background-color: #86d9fc;
+                color: #252629;
+            }
+            .category-header {
+                border-bottom-color: #555;
+            }
+            
+            .spinner {
+                border-color: rgba(255, 255, 255, 0.1);
+                border-top-color: #86d9fc;
+            }
+            
+            .error-container {
+                background-color: #2d1a1c;
+                border-color: #442429;
+                color: #f8d7da;
+            }
+            
+            .error-container h3 {
+                color: #f8d7da;
+            }
+            
+            /* Toast notification */
+            .toast {
+                background-color: #333;
+                color: #fff;
+            }
+            
+            .toast-header {
+                background-color: #252629;
+                color: #fff;
+                border-bottom-color: #444;
+            }
+            
+            .btn-close {
+                filter: invert(1);
+            }
+            
+            .filter-select {
+                background-color: #333;
+                border-color: #555;
+                color: #fff;
+            }
+            
+            .filter-select option {
+                background-color: #333;
+                color: #fff;
+            }
+            
+            .no-results {
+                background-color: #333;
+                color: #fff;
+            }
+        }
+    </style>
+    <script>
+        'use strict';
+        
+        let appListingData = null;
+        let currentFilter = 'all';
+        
+        function copyToClipboard(url, itemName) {
+            // Check if the URL is relative and needs the origin prepended
+            let fullUrl = url;
+            
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                // Get the origin from either override settings or window.location
+                let origin = '';
+                
+                if (appListingData && 
+                    appListingData['override-settings'] && 
+                    appListingData['override-settings'].forcedOriginURL) {
+                    origin = appListingData['override-settings'].forcedOriginURL;
+                } else {
+                    origin = window.location.origin;
+                }
+                
+                // Remove trailing slash from origin if present
+                if (origin.endsWith('/')) {
+                    origin = origin.slice(0, -1);
+                }
+                
+                // Ensure URL doesn't start with a slash to avoid double slash
+                if (url.startsWith('/')) {
+                    url = url.substring(1);
+                }
+                
+                fullUrl = `${origin}/${url}`;
+            }
+            
+            navigator.clipboard.writeText(fullUrl).then(() => {
+                showToast(itemName);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                showToast(itemName, true);
+            });
+        }
+        
+        function showToast(itemName, isError = false) {
+            const toastContainer = document.getElementById('toastContainer');
+            
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.setAttribute('role', 'alert');
+            toast.setAttribute('aria-live', 'assertive');
+            toast.setAttribute('aria-atomic', 'true');
+            
+            // Set content
+            const icon = isError ? 
+                '<i class="bi bi-exclamation-circle-fill me-2 text-danger"></i>' : 
+                '<i class="bi bi-check-circle-fill me-2 text-success"></i>';
+            
+            const message = isError ? 
+                `Failed to copy link for "${itemName}". Please try again.` : 
+                `Link for "${itemName}" copied to clipboard!`;
+            
+            toast.innerHTML = `
+                <div class="toast-header">
+                    ${icon}
+                    <strong class="me-auto">${isError ? 'Error' : 'Success'}</strong>
+                    <small>just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    ${message}
+                </div>
+            `;
+            
+            // Add to container
+            toastContainer.appendChild(toast);
+            
+            // Initialize and show the toast
+            const bsToast = new bootstrap.Toast(toast, {
+                autohide: true,
+                delay: 3000
+            });
+            bsToast.show();
+            
+            // Remove toast after it's hidden
+            toast.addEventListener('hidden.bs.toast', function () {
+                toast.remove();
+            });
+        }
+        
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check for URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('filter')) {
+                currentFilter = urlParams.get('filter');
+            }
+            
+            loadApplicationData();
+            
+            // Add Bootstrap icons CSS for toast icons
+            const iconLink = document.createElement('link');
+            iconLink.rel = 'stylesheet';
+            iconLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css';
+            document.head.appendChild(iconLink);
+        });
+        
+        function loadApplicationData() {
+            const appListingContainer = document.getElementById('appListingContainer');
+            const loadingContainer = document.getElementById('loadingContainer');
+            
+            // Show loading spinner
+            loadingContainer.style.display = 'flex';
+            appListingContainer.style.display = 'none';
+            
+            // Fetch the JSON data
+            fetch('applisting.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Store data globally for use in copyToClipboard
+                    appListingData = data;
+                    
+                    // Create filter dropdown
+                    createFilterDropdown(data);
+                    
+                    // Process the data
+                    renderApplicationListing(data);
+                    
+                    // Hide loading spinner
+                    loadingContainer.style.display = 'none';
+                    appListingContainer.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error loading application data:', error);
+                    showErrorMessage(error.message);
+                    
+                    // Hide loading spinner
+                    loadingContainer.style.display = 'none';
+                });
+        }
+        
+        function createFilterDropdown(data) {
+            const filterContainer = document.getElementById('filterContainer');
+            filterContainer.innerHTML = '';
+            
+            // Create label and select element
+            const label = document.createElement('label');
+            label.setAttribute('for', 'typeFilter');
+            label.textContent = 'Filter by type: ';
+            label.className = 'form-label me-2';
+            
+            const select = document.createElement('select');
+            select.id = 'typeFilter';
+            select.className = 'filter-select';
+            
+            // Add "All" option
+            const allOption = document.createElement('option');
+            allOption.value = 'all';
+            allOption.textContent = 'All Tools';
+            select.appendChild(allOption);
+            
+            // Add options for each type in typeFriendlyName
+            if (data.typeFriendlyName) {
+                const types = Object.keys(data.typeFriendlyName);
+                types.forEach(type => {
+                    const option = document.createElement('option');
+                    option.value = type;
+                    option.textContent = data.typeFriendlyName[type];
+                    select.appendChild(option);
+                });
+            }
+            
+            // Set current filter
+            select.value = currentFilter;
+            
+            // Add change event listener
+            select.addEventListener('change', function() {
+                currentFilter = this.value;
+                
+                // Update URL without reloading the page
+                const url = new URL(window.location);
+                if (currentFilter === 'all') {
+                    url.searchParams.delete('filter');
+                } else {
+                    url.searchParams.set('filter', currentFilter);
+                }
+                window.history.pushState({}, '', url);
+                
+                // Re-render with the new filter
+                renderApplicationListing(appListingData);
+            });
+            
+            filterContainer.appendChild(label);
+            filterContainer.appendChild(select);
+        }
+        
+        function renderApplicationListing(data) {
+            const appListingContainer = document.getElementById('appListingContainer');
+            appListingContainer.innerHTML = ''; // Clear any existing content
+            
+            // Sort groups by their order property
+            const sortedGroups = data.groups.sort((a, b) => a.order - b.order);
+            
+            // Track if we have any visible content after filtering
+            let hasVisibleContent = false;
+            
+            // Process each group
+            sortedGroups.forEach(group => {
+                // Skip empty groups
+                if (!group.items || group.items.length === 0) {
+                    return;
+                }
+                
+                // Check if this group should be shown based on filter
+                const shouldShowGroup = 
+                    currentFilter === 'all' || 
+                    group.type === currentFilter || 
+                    group.type === 'alwaysDisplay';
+                
+                if (shouldShowGroup) {
+                    // Create category section
+                    const categorySection = document.createElement('div');
+                    categorySection.className = 'category';
+                    
+                    // Create category header
+                    const categoryHeader = document.createElement('h2');
+                    categoryHeader.className = 'category-header';
+                    categoryHeader.textContent = `Category: ${group.name}`;
+                    categorySection.appendChild(categoryHeader);
+                    
+                    // Create card container
+                    const cardContainer = document.createElement('div');
+                    cardContainer.className = 'row row-cols-1 row-cols-md-2 g-4';
+                    
+                    // Create cards for each item in the group
+                    group.items.forEach(item => {
+                        const cardCol = document.createElement('div');
+                        cardCol.className = 'col';
+                        
+                        // Determine if the URL is absolute or relative
+                        const isAbsoluteUrl = item.url.startsWith('http://') || item.url.startsWith('https://');
+                        const linkUrl = isAbsoluteUrl ? item.url : item.url;
+                        
+                        cardCol.innerHTML = `
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">${item.name}</h5>
+                                    <p class="card-text">${item.description || 'No description available.'}</p>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-outline-primary" onclick="copyToClipboard('${item.url}', '${item.name.replace(/'/g, "\\'")}')">Copy Link</button>
+                                    <a href="${linkUrl}" class="btn btn-primary" ${isAbsoluteUrl ? 'target="_blank"' : ''}>Open</a>
+                                </div>
+                            </div>
+                        `;
+                        
+                        cardContainer.appendChild(cardCol);
+                    });
+                    
+                    categorySection.appendChild(cardContainer);
+                    appListingContainer.appendChild(categorySection);
+                    hasVisibleContent = true;
+                }
+            });
+            
+            // Show a message if no content matches the filter
+            if (!hasVisibleContent) {
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                
+                noResults.innerHTML = `
+                    <h3>No Tools Found</h3>
+                    <p>No tools match the selected filter criteria.</p>
+                    <button class="btn btn-primary" onclick="document.getElementById('typeFilter').value = 'all'; document.getElementById('typeFilter').dispatchEvent(new Event('change'));">Show All Tools</button>
+                `;
+                
+                appListingContainer.appendChild(noResults);
+            }
+            
+            // Add back button
+            const backButtonContainer = document.createElement('div');
+            backButtonContainer.className = 'mt-5 mb-4';
+            backButtonContainer.innerHTML = '<a href="index.html" class="btn btn-primary">Back to Home</a>';
+            appListingContainer.appendChild(backButtonContainer);
+        }
+        
+        function showErrorMessage(message) {
+            const appListingContainer = document.getElementById('appListingContainer');
+            
+            const errorContainer = document.createElement('div');
+            errorContainer.className = 'error-container';
+            
+            errorContainer.innerHTML = `
+                <h3>Error Loading Data</h3>
+                <p>We encountered a problem while loading the application listings:</p>
+                <p><strong>${message}</strong></p>
+                <p>This could be due to network issues or a problem with the data source.</p>
+                <button class="btn btn-primary retry-button" onclick="loadApplicationData()">Try Again</button>
+            `;
+            
+            appListingContainer.innerHTML = '';
+            appListingContainer.appendChild(errorContainer);
+            appListingContainer.style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <main id="mainContent">
+        <div class="container">
+            <h1>Tools</h1>
+            <p class="lead">These tools can help you to solve some small but annoying problems!</p>
+            
+            <!-- Filter dropdown -->
+            <div id="filterContainer" class="filter-container"></div>
+            
+            <!-- Loading indicator -->
+            <div id="loadingContainer" class="loading-container">
+                <div class="spinner"></div>
+                <p>Loading application listings...</p>
+            </div>
+            
+            <!-- Dynamic content will be loaded here -->
+            <div id="appListingContainer"></div>
+            
+            <!-- Toast container for notifications -->
+            <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+        </div>
+    </main>
+</body>
+</html>

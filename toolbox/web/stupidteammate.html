@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identity V CAPTCHA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:wght@400;500;600;700&display=swap');
+        body {
+            background-color: #f1f1f1;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .captcha-container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .captcha-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .captcha-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .captcha-images img {
+            width: 100%;
+            border-radius: 4px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: border-color 0.3s, transform 0.2s;
+            position: relative;
+        }
+
+        .captcha-images img:hover {
+            border-color: #007bff;
+        }
+
+        .captcha-images img.selected {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            transform: scale(1.05);
+        }
+
+        .captcha-images img.selected::after {
+            content: '\2713';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        button {
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            color: #000;
+            border-radius: 6px;
+            padding: 12px 24px;
+            background-color: #0056cc;
+            color: #fff;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #fff;
+            color: #0056cc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .submit-btn {
+            background-color: #007bff; /* Blue color */
+            color: white;
+        }
+        /** Better select / option styling */
+        select {
+            font-family: 'Montserrat', sans-serif;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .error-message {
+            color: #d93025;
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .language-selector {
+            margin-bottom: 20px;
+        }
+
+        .loading {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #252629;
+                color: #ffffff;
+            }
+            .captcha-container {
+                background: #333333;
+                border: 2px solid #ffffff;
+            }
+            button {
+                background-color: #333333;
+                border-color: #ffffff;
+                color: #ffffff;
+            }
+            button:hover {
+                background-color: #4d4d4d;
+                border-color: #ffffff;
+                color: #ffffff;
+            }
+        }
+            a{
+                color: #0078ff;
+                text-decoration: none;
+                position: relative;
+                transition: color 0.3s ease;
+            }
+
+            a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                width: 0;
+                height: 2px;
+                background-color: #0078ff;
+                transition: width 0.3s ease;
+            }
+
+            a:hover {
+                color: #5cb8ff;
+            }
+
+            a:hover::after {
+                width: 100%;
+            }
+            a:focus {
+                outline: 2px dashed #0078ff;
+                outline-offset: 3px;
+            }
+        /* Responsive styles */
+        @media screen and (max-width: 600px) {
+            .captcha-container {
+                padding: 10px;
+            }
+            .captcha-images {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 5px;
+            }
+            button {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+
+        /* Add this style to make the container scrollable */
+        .scrollable-container {
+            max-height: 100vh; /* Adjust the height as needed */
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="scrollable-container">
+        <div class="captcha-container">
+            <div class="language-selector">
+                <label for="language">Select Language: </label>
+                <select id="language" onchange="changeLanguage()">
+                    <option value="en">English</option>
+                    <option value="zh">繁體中文</option>
+                    <option value="ja">日本語</option>
+                </select>
+            </div>
+            <h1 id="title">Are you act like a human when play Identity V?</h1>
+            <p id="messageText">
+                To verify that you are human and not a robot, monkey, or any other non-human entity, please pass this quick test.<br>
+                If you fail this test, please close the IdentityV app, delete it, and consider downloading Candy Crush Saga instead.<br>
+            </p>
+            <div class="captcha-text">Select all images containing <strong id="captcha-prompt"></strong>.</div>
+            <div class="captcha-images" id="captcha-images"></div>
+            <button class="submit-btn" onclick="submitCaptcha()">Submit</button>
+            <div class="error-message hidden" id="error-message">You must select at least one image.</div>
+            <div class="error-message hidden" id="reload-message">Verification failed. Reloading...</div>
+            <div class="loading" id="loading"></div>
+            <p>
+                <a href="https://www.ujayden.com/terms-of-service/" target="_blank">Terms of Service</a> |
+                <a href="https://www.ujayden.com/privacy-policy/" target="_blank">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Are you act like a human when play Identity V?",
+                //1 item in messageText = 1 line
+                messageText: [
+                "To verify that you are human and not a robot, monkey, or any other non-human entity, please pass this quick test.",
+                "If you fail this test, please close the IdentityV app, delete it, and consider downloading Candy Crush Saga instead.",
+                "Please note that certain in-game behaviors, such as playing Entomologist and acting like a player with zero IQ, may be flagged as non-human and could result in failing this verification."
+                ],
+                selectAll: "Select all images containing",
+                submit: "Submit",
+                errorSelect: "You must select at least one image.",
+                errorVerification: "Verification failed. Please try again.",
+                reloading: "Verification failed. Reloading...",
+                prompts: ["cats", "cars", "traffic lights", "bicycles", "trees"]
+            },
+            zh: {
+                title: "您在玩第五人格時是否表現得像個人類？",
+                messageText: [
+                "為了確認您是人類而非機器人、猴子或其他非人類生物，請通過這個簡單的測試。",
+                "如果您未能通過測試，請關閉《第五人格》應用程式，刪除它，並考慮改下載《Candy Crush Saga》。",
+            ],
+                selectAll: "請選擇包含以下內容的所有圖片",
+                submit: "提交",
+                errorSelect: "您必須至少選擇一張圖片。",
+                errorVerification: "驗證失敗。請重試。",
+                reloading: "驗證失敗。重新載入中...",
+                prompts: ["貓", "汽車", "紅綠燈", "單車", "樹木"]
+            },
+            ja: {
+                title: "Identity Vをプレイする際に人間らしく振る舞っていますか？",
+                messageText: [
+                    "あなたが人間であり、ロボット、サル、またはその他の非人間的存在ではないことを確認するため、この簡単なテストを受けてください。",
+                    "テストに失敗した場合は、IdentityVアプリを閉じて削除し、代わりにCandy Crush Sagaをダウンロードすることを検討してください。",
+                ],
+                selectAll: "次の要素を含む画像をすべて選択してください",
+                submit: "送信",
+                errorSelect: "少なくとも1つの画像を選択してください。",
+                errorVerification: "認証に失敗しました。もう一度お試しください。",
+                reloading: "認証に失敗しました。更新中...",
+                prompts: ["猫", "車", "信号機", "自転車", "木"]
+            }
+        };
+
+        let currentLanguage = "en";
+        const captchaPrompt = document.getElementById('captcha-prompt');
+        const captchaImages = document.getElementById('captcha-images');
+        const errorMessage = document.getElementById('error-message');
+        const reloadMessage = document.getElementById('reload-message');
+        const loadingElement = document.getElementById('loading');
+        let attemptCount = 0;
+
+        function updateLanguage(lang) {
+            currentLanguage = lang;
+            const translation = translations[lang];
+            document.querySelector('.captcha-text').innerHTML = `${translation.selectAll} <strong id="captcha-prompt">${translation.prompts[Math.floor(Math.random() * translation.prompts.length)]}</strong>.`;
+            document.querySelector('.submit-btn').textContent = translation.submit;
+            errorMessage.textContent = translation.errorSelect;
+            reloadMessage.textContent = translation.errorVerification;
+            document.getElementById('title').textContent = translation.title;
+            document.getElementById('messageText').innerHTML = translation.messageText.join('<br>');
+        }
+
+        function loadCaptcha() {
+            attemptCount = 0;
+            const randomPrompt = translations[currentLanguage].prompts[
+                Math.floor(Math.random() * translations[currentLanguage].prompts.length)
+            ];
+            captchaPrompt.textContent = randomPrompt;
+            captchaImages.innerHTML = '';
+            errorMessage.classList.add('hidden');
+            reloadMessage.classList.add('hidden');
+            loadingElement.style.display = 'none';
+
+            for (let i = 0; i < 9; i++) {
+                const img = document.createElement('img');
+                img.src = `https://picsum.photos/100?random=${Math.random()}`;
+                img.alt = `Image ${i + 1}`;
+                img.addEventListener('click', () => toggleSelection(img));
+                captchaImages.appendChild(img);
+            }
+        }
+
+        function toggleSelection(img) {
+            img.classList.toggle('selected');
+        }
+
+        function submitCaptcha() {
+            const selectedImages = document.querySelectorAll('.captcha-images img.selected');
+
+            if (selectedImages.length === 0) {
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            loadingElement.style.display = 'block';
+
+            setTimeout(() => {
+                attemptCount++;
+                
+                if (attemptCount < 3) {
+                    // Show verification failed message
+                    errorMessage.textContent = translations[currentLanguage].errorVerification;
+                    errorMessage.classList.remove('hidden');
+                    loadingElement.style.display = 'none';
+                } else {
+                    // Reset attempts and reload on 3rd failure
+                    attemptCount = 0;
+                    reloadMessage.classList.remove('hidden');
+                    loadingElement.style.display = 'none';
+                    setTimeout(() => {
+                        loadCaptcha();
+                    }, 2000);
+                }
+            }, 1500);
+        }
+
+        function changeLanguage() {
+            const languageSelector = document.getElementById('language');
+            updateLanguage(languageSelector.value);
+        }
+
+        window.onload = loadCaptcha;
+
+        // Add event listener for language selector
+        document.getElementById('language-selector').addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+    </script>
+</body>
+
+</html>

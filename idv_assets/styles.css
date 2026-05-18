@@ -1,0 +1,193 @@
+@import "tailwindcss" source("../");
+@plugin "daisyui";
+html {
+    scroll-behavior: smooth;
+}
+
+/* Apply Montserrat font to the entire site */
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Ensure all text elements use Montserrat */
+h1, h2, h3, h4, h5, h6,
+p, span, div, button, a,
+input, textarea, select {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+nav {
+    /* Position the nav at the top and overlap with content */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+    
+    /* Use flexbox to separate the two ul elements */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border-bottom: 1px solid transparent; /* Placeholder to prevent shift */
+}
+
+nav.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.05); /* Lower opacity to reduce flashing */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a {
+    color: white; /* Ensure text is visible over the hero */
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+nav ul {
+    /* Display list items horizontally */
+    display: flex;
+    gap: 15px; /* Spacing between links */
+    list-style: none; /* Remove default bullet points */
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+}
+
+
+
+#hero {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.90) contrast(1);
+}
+
+.hero-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(20, 25, 35, 0.90), transparent);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.hero-bottom-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15vh;
+    background: linear-gradient(to top, var(--color-base-100, #ffffff), transparent);
+    z-index: 15;
+    pointer-events: none;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @apply p-4 sm:p-6 md:p-10 lg:p-16;
+    z-index: 20;
+    color: white;
+    white-space: nowrap;
+    align-items: flex-start;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 0.25rem;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+    color: var(--color-gray-300);
+}
+
+.section {
+    @apply p-4 sm:p-6 md:p-10 lg:p-16;
+}
+
+/* Footer Link Styles */
+footer a {
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a:hover {
+    transform: translateY(-2px);
+}
+
+footer a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+footer a:focus {
+    outline: 2px dashed currentColor;
+    outline-offset: 3px;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.section-heading {
+    @apply text-4xl md:text-5xl font-bold relative pb-3 mb-6;
+}
+
+.section-heading::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-14 h-1 bg-blue-400 rounded-full;
+}

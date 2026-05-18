@@ -1,0 +1,103 @@
+{
+    "title": "Application Listing",
+    "version": "1.0",
+    "date": "2025-06-23",
+    "versionDate": "2025-06-25",
+    "groups": [
+        {
+            "id": "identityv",
+            "name": "IdentityV",
+            "order": 0,
+            "type": "web-tools",
+            "items": [
+                {
+                    "name": "Duplicate Name Generator",
+                    "description": "A tools to help you create duplicate IdentityV names for fun - For example, your favourite character names.",
+                    "url": "web/idv-dupename"
+                },
+                {
+                    "name": "IdentityV 8-Puzzle",
+                    "description": "Help you solve the puzzle in IdentityV in-game event.",
+                    "url": "web/idv-8puzzle"
+                },
+                {
+                    "name": "Stupid IdentityV Teammate Emulator",
+                    "description": "A tool to help you simulate a stupid teammate in IdentityV, just for fun.",
+                    "url": "web/stupidteammate.html"
+                }
+            ]
+        },
+        {
+            "id": "mysites",
+            "name": "Site Tools",
+            "order": 1,
+            "type": "web-tools",
+            "items": [
+                {
+                    "name": "URL Shortener",
+                    "description": "A tool to shorten long URLs for easier sharing with my url lol, just for my personal use only.",
+                    "url": "https://s.ujayden.com/"
+                },
+                {
+                    "name": "My Sites",
+                    "description": "My blog to share my ideas.",
+                    "url": "https://www.ujayden.com/"
+                },{
+                    "name": "My GitHub",
+                    "description": "My GitHub profile where I share my projects.",
+                    "url": "https://github.com/ujayden"
+                }
+            ]
+        },
+                {
+            "id": "python",
+            "name": "Python Scripts",
+            "order": 3,
+            "type": "python-scripts",
+            "items": []
+        },
+        {
+            "id": "misc",
+            "name": "Miscellaneous",
+            "order": 2,
+            "type": "web-tools",
+            "items": [
+                {
+                    "name": "Florian Brand (IdentityV) Roleplay LLM System Prompt",
+                    "description": "As a big fan of Florian Brand (???), I created a system prompt for roleplaying as Florian Brand to chat with you. You can use it with any LLM that supports system prompts.",
+                    "url": "https://github.com/ujayden/florian-brand-idv-roleplay"
+                }
+                ]
+        },
+        {
+            "id": "tools-sites",
+            "name": "Use of this site",
+            "order": 9999,
+            "type": "alwaysDisplay",
+            "items": [
+                {
+                    "name": "Privacy Policy",
+                    "url": "https://www.ujayden.com/privacy-policy"
+                },
+                {
+                    "name": "Terms of Service",
+                    "url": "https://www.ujayden.com/terms-of-service"
+                },
+                {
+                    "name": "View Source Code",
+                    "description": "This project is open source, you can view the source code on GitHub! I host the site on Cloudflare Pages.",
+                    "url": "https://github.com/ujayden/useful-tools.git"
+                }
+            ]
+        }
+    ],
+    "typeFriendlyName":{
+        "web-tools": "Web Tools",
+        "python-scripts": "Python Scripts",
+        "misc": "Miscellaneous"
+    },
+    "override-settings": {
+        "forcedOriginURL": null,
+        "forcedOriginURL-Example": "https://tools.ujayden.com"
+    }
+}
