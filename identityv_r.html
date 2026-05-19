@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta name="robots" content="index, follow">
     <title data-i18n="page_title">uJayden's IdentityV Profile</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/webp" href="/idv_assets/images/ujayden-logo-safe.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@
     <div id="hero">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-bottom-fade"></div>
-        <img src="/idv_assets/images/hero_image.webp" alt="Florian Brand from Identity V relaxing against a fallen log in a moonlit grassy field. He wears a yellow jacket, blue overalls, a red neckerchief, and a straw hat, smiling warmly as he points up at a glowing firefly." loading="eager">
+        <img src="/idv_assets/images/hero_image.webp" alt="Florian Brand from Identity V relaxing against a fallen log in a moonlit grassy field. He wears a yellow jacket, blue overalls, a red neckerchief, and a straw hat, smiling warmly as he points up at a glowing firefly." loading="eager" draggable="false">
         <div class="hero-content h-full w-full">
             <h2 data-i18n="hero_greeting" class="hero-text-reveal hero-text-delay-1">Hello!</h2>
             <h1 data-i18n-html="hero_intro" class="hero-text-reveal hero-text-delay-2" style="text-shadow: 0 2px 6px rgba(0,0,0,0.3);">I'm <span class="text-blue-500">uJayden</span></h1>
@@ -85,12 +85,12 @@
                 <div class="space-y-4 flex-1 min-w-0 w-full">
                     <div class="rounded-lg border border-white/10 bg-zinc-900/70 p-4 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 min-h-0">
                         <p data-i18n="asia_server_label" class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Asia Server</p>
-                        <h2 class="text-lg font-semibold tracking-tight text-zinc-100">火災調查員฀</h2>
+                        <h2 id="asia-server-ign" class="text-lg font-semibold tracking-tight text-zinc-100">火災調查員฀</h2>
                         <div class="mt-4 flex items-center gap-2 text-sm leading-7 text-zinc-400">
                             <span data-i18n="id_label">ID:</span>
-                            <span class="font-mono text-zinc-400">16938170</span>
+                            <span id="asia-server-id" class="font-mono text-zinc-400">16938170</span>
                             <div class="tooltip tooltip-top" data-tip="Copy ID for Asia server">
-                                <button data-copy-id="16938170" data-i18n-aria-label="copy_id_asia" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for Asia server">
+                                <button id="asia-server-copy" data-copy-id="16938170" data-i18n-aria-label="copy_id_asia" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for Asia server">
                                     <i class="ti ti-copy text-base"></i>
                                 </button>
                             </div>
@@ -98,12 +98,12 @@
                     </div>
                     <div class="rounded-lg border border-white/10 bg-zinc-900/70 p-4 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 min-h-0">
                         <p data-i18n="china_server_label" class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">China Server</p>
-                        <h2 class="text-lg font-semibold tracking-tight text-zinc-100">哈基火灾调查员</h2>
+                        <h2 id="china-server-ign" class="text-lg font-semibold tracking-tight text-zinc-100">火调牌薯饼</h2>
                         <div class="mt-4 flex items-center gap-2 text-sm leading-7 text-zinc-400">
                             <span data-i18n="id_label">ID:</span>
-                            <span class="font-mono text-zinc-400">301080114</span>
+                            <span id="china-server-id" class="font-mono text-zinc-400">301080114</span>
                             <div class="tooltip tooltip-top" data-tip="Copy ID for China server">
-                                <button data-copy-id="301080114" data-i18n-aria-label="copy_id_china" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for China server">
+                                <button id="china-server-copy" data-copy-id="301080114" data-i18n-aria-label="copy_id_china" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for China server">
                                     <i class="ti ti-copy text-base"></i>
                                 </button>
                             </div>
@@ -115,8 +115,8 @@
                 </div>
             </div>
                 <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 w-full min-h-0">
-                    <a href="/idv_assets/images/profile.jpg" class="glightbox block overflow-hidden">
-                        <img src="/idv_assets/images/profile.jpg" alt="In-game Profile" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+                    <a href="/idv_assets/images/profile.webp" class="glightbox block overflow-hidden">
+                        <img src="/idv_assets/images/profile.webp" alt="In-game Profile" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                     </a>
                 </div>
         </div>
@@ -128,6 +128,7 @@
         </div>
         <div class="md:w-2/3 flex flex-col gap-8 w-full">
             <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-6 min-h-0 w-full flex flex-col gap-10">
+                <!-- This part is disabled.
                 <div>
                     <h2 data-i18n="current_season_title" class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Current Season</h2>
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
@@ -148,22 +149,23 @@
                         </div>
                     </div>
                 </div>
+                -->
                 <div>
                     <h2 data-i18n="historical_peak_title" class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Historical Peak</h2>
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
                         <div class="flex-1 flex items-center gap-4">
-                            <img src="/idv_assets/images/s-7-basic_trophy.png" alt="Historical Survivor Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
+                            <img src="/idv_assets/images/s-7-basic_trophy.webp" alt="Historical Survivor Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
                             <div>
                             <p data-i18n="survivor_label" class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
-                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VII - 2 Star(s)</h3>
+                            <h3 data-i18n="historical_peak_survivor_tier" class="text-lg font-semibold tracking-tight text-zinc-100">Tier VII - 2 Star(s)</h3>
                             </div>
                         </div>
                         <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
                         <div class="flex-1 flex items-center gap-4">
-                            <img src="/idv_assets/images/h-6-trophy.png" alt="Historical Hunter Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
+                            <img src="/idv_assets/images/h-6-trophy.webp" alt="Historical Hunter Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
                             <div>
                             <p data-i18n="hunter_label" class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
-                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VI - V</h3>
+                            <h3 data-i18n="historical_peak_hunter_tier" class="text-lg font-semibold tracking-tight text-zinc-100">Tier VI - V</h3>
                             </div>
                         </div>
                     </div>
@@ -181,8 +183,7 @@
                             <div class="flex flex-col items-center md:items-start gap-1">
                                 <p data-i18n="current_label" class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Current</p>
                                 <div class="flex flex-row items-center gap-2">
-                                    <img src="/idv_assets/images/Badge_Survivor_C.png" alt="Current Badge" class="h-8 w-auto object-contain drop-shadow-md">
-                                    <span class="text-sm font-semibold text-zinc-600">-</span>
+                                    <span class="inline-flex min-h-8 min-w-8 items-center justify-center px-2 text-sm font-semibold text-zinc-600">N/A</span>
                                 </div>
                             </div>
                             <div class="w-px h-8 bg-white/10 self-stretch my-auto"></div>
@@ -445,7 +446,7 @@
             <div class="flex flex-wrap gap-4 mt-4 text-xl">
                 <a href="https://www.ujayden.com" target="_blank" title="Blog" data-i18n="footer_link_blog"><i class="ti ti-news"></i></a>
                 <a href="mailto:admin@ujayden.com" target="_blank" title="Email" data-i18n="footer_link_email"><i class="ti ti-mail"></i></a>
-                <a href="https://github.com/uJayden" target="_blank" title="GitHub" data-i18n="footer_link_github"><i class="ti ti-brand-github"></i></a>
+                <a href="https://github.com/ujayden" target="_blank" title="GitHub" data-i18n="footer_link_github"><i class="ti ti-brand-github"></i></a>
                 <a href="https://x.com/ujayden_" target="_blank" title="X" data-i18n="footer_link_x"><i class="ti ti-brand-x"></i></a>
                 <a href="https://threads.net/@ujayden_00" target="_blank" title="Threads" data-i18n="footer_link_threads"><i class="ti ti-brand-threads"></i></a>
                 <a href="https://ujayden.com/privacy_policy" target="_blank" title="Privacy Policy" data-i18n="footer_link_privacy"><i class="ti ti-shield-lock"></i></a>

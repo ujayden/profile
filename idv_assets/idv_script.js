@@ -30,6 +30,8 @@ const I18N_LANGUAGE_ALIASES = {
 };
 let translationCache = {};
 let activeLanguage = 'en';
+const BASIC_PROFILE_DATA_URL = '/idv_assets/idv_basic_data.json';
+let basicProfileDataCache = null;
 
 function normalizeThemePreference(value) {
     return value === 'light' || value === 'dark' ? value : 'auto';
@@ -325,12 +327,67 @@ function handleLanguageMenuClick(event) {
     loadLanguage(selectedLanguage);
     document.activeElement.blur();
 }
+
+function applyBasicProfileData(profileData) {
+    if (!profileData?.profile) {
+        return;
+    }
+
+    const asiaServer = profileData.profile.asiaServer;
+    const chinaServer = profileData.profile.chinaServer;
+
+    const asiaIgnElement = document.getElementById('asia-server-ign');
+    const asiaIdElement = document.getElementById('asia-server-id');
+    const asiaCopyButton = document.getElementById('asia-server-copy');
+    const chinaIgnElement = document.getElementById('china-server-ign');
+    const chinaIdElement = document.getElementById('china-server-id');
+    const chinaCopyButton = document.getElementById('china-server-copy');
+
+    if (asiaIgnElement && typeof asiaServer?.ign === 'string') {
+        asiaIgnElement.textContent = asiaServer.ign;
+    }
+    if (asiaIdElement && typeof asiaServer?.id === 'string') {
+        asiaIdElement.textContent = asiaServer.id;
+    }
+    if (asiaCopyButton && typeof asiaServer?.id === 'string') {
+        asiaCopyButton.setAttribute('data-copy-id', asiaServer.id);
+    }
+
+    if (chinaIgnElement && typeof chinaServer?.ign === 'string') {
+        chinaIgnElement.textContent = chinaServer.ign;
+    }
+    if (chinaIdElement && typeof chinaServer?.id === 'string') {
+        chinaIdElement.textContent = chinaServer.id;
+    }
+    if (chinaCopyButton && typeof chinaServer?.id === 'string') {
+        chinaCopyButton.setAttribute('data-copy-id', chinaServer.id);
+    }
+}
+
+async function loadBasicProfileData() {
+    try {
+        if (!basicProfileDataCache) {
+            const response = await fetch(BASIC_PROFILE_DATA_URL);
+
+            if (!response.ok) {
+                throw new Error(`Failed to load ${BASIC_PROFILE_DATA_URL}: ${response.status}`);
+            }
+
+            basicProfileDataCache = await response.json();
+        }
+
+        applyBasicProfileData(basicProfileDataCache);
+    } catch (error) {
+        console.warn('Basic profile data unavailable; keeping the HTML fallback values.', error);
+    }
+}
 let AUTO_DETECT_DEV_MODE = true; // Set to false to disable auto-detection of developer mode
 
 // Drawer close on internal link click
 document.addEventListener('DOMContentLoaded', () => {
     initThemeController();
     loadLanguage('auto');
+    loadBasicProfileData();
 });
 
 document.addEventListener('DOMContentLoaded', () => {
