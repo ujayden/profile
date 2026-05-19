@@ -14,13 +14,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="/idv_assets/idv_bootstrap.js"></script>
     <link rel="stylesheet" href="/idv_assets/styles_tailwind.css">
     <link rel="stylesheet" href="/libraries/glightbox/glightbox.min.css">
-    <link rel="stylesheet" href="/libraries/leaflet/leaflet.css">
+    <link rel="preload" href="/libraries/leaflet/leaflet.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/libraries/leaflet/leaflet.css"></noscript>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <script src="/libraries/glightbox/glightbox.min.js" defer></script>
     <script src="/libraries/leaflet/leaflet.js" defer></script>
-    <script src="/idv_assets/idv_script.js"></script>
+    <script src="/idv_assets/idv_script.js" defer></script>
 </head>
 <body class="theme-page">
 <div class="drawer">
@@ -66,11 +68,11 @@
     <div id="hero">
         <div class="hero-gradient-overlay"></div>
         <div class="hero-bottom-fade"></div>
-        <img src="/idv_assets/images/hero_image.webp">
+        <img src="/idv_assets/images/hero_image.webp" alt="Florian Brand from Identity V relaxing against a fallen log in a moonlit grassy field. He wears a yellow jacket, blue overalls, a red neckerchief, and a straw hat, smiling warmly as he points up at a glowing firefly." loading="eager">
         <div class="hero-content h-full w-full">
-            <h2>Hello!</h2>
-            <h1 style="text-shadow: 0 2px 6px rgba(0,0,0,0.3);">I'm <span class="text-blue-500">uJayden</span></h1>
-            <p>An IdentityV player who enjoys playing as Fire Investigator.</p>
+            <h2 class="hero-text-reveal hero-text-delay-1">Hello!</h2>
+            <h1 class="hero-text-reveal hero-text-delay-2" style="text-shadow: 0 2px 6px rgba(0,0,0,0.3);">I'm <span class="text-blue-500">uJayden</span></h1>
+            <p class="hero-text-reveal hero-text-delay-3">An IdentityV player who enjoys playing as Fire Investigator.</p>
         </div>
     </div>
     <section id="profile-card" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start overflow-hidden">
@@ -113,7 +115,7 @@
             </div>
                 <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 w-full min-h-0">
                     <a href="/idv_assets/images/profile.jpg" class="glightbox block overflow-hidden">
-                        <img src="/idv_assets/images/profile.jpg" alt="In-game Profile" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300">
+                        <img src="/idv_assets/images/profile.jpg" alt="In-game Profile" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
                     </a>
                 </div>
         </div>
@@ -129,7 +131,7 @@
                     <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Current Season</h2>
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
                         <div class="flex-1 flex items-center gap-4">
-                            <img src="/idv_assets/images/s-5-trophy.png" alt="Survivor Tier" class="w-16 h-16 object-contain drop-shadow-md">
+                            <img src="/idv_assets/images/s-5-trophy.png" alt="Survivor Tier" class="w-16 h-16 object-contain drop-shadow-md" loading="lazy">
                             <div>
                                 <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
                                 <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier V - I</h3>
@@ -137,7 +139,7 @@
                         </div>
                         <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
                         <div class="flex-1 flex items-center gap-4">
-                            <img src="/idv_assets/images/h-4-trophy.png" alt="Hunter Tier" class="w-16 h-16 object-contain drop-shadow-md">
+                            <img src="/idv_assets/images/h-4-trophy.png" alt="Hunter Tier" class="w-16 h-16 object-contain drop-shadow-md" loading="lazy">
                             <div>
                                 <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
                                 <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier IV - I</h3>
@@ -149,7 +151,7 @@
                     <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Historical Peak</h2>
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
                         <div class="flex-1 flex items-center gap-4">
-                            <img src="/idv_assets/images/s-7-basic_trophy.png" alt="Historical Survivor Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md">
+                            <img src="/idv_assets/images/s-7-basic_trophy.png" alt="Historical Survivor Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
                             <div>
                                 <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
                                 <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VII - 2 Star(s)</h3>
@@ -157,7 +159,7 @@
                         </div>
                         <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
                         <div class="flex-1 flex items-center gap-4">
-                            <img src="/idv_assets/images/h-6-trophy.png" alt="Historical Hunter Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md">
+                            <img src="/idv_assets/images/h-6-trophy.png" alt="Historical Hunter Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
                             <div>
                                 <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
                                 <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VI - V</h3>
@@ -215,7 +217,7 @@
         <div class="md:w-2/3 flex flex-col lg:flex-row gap-8 items-center lg:items-stretch text-lg leading-relaxed font-mono text-gray-300">
             <div class="flex-1 h-full">
                 <div class="flex items-center gap-4 mb-2">
-                    <img src="/idv_assets/images/florian_brand.gif" alt="Florian Brand GIF" class="h-[3.5rem] w-auto border-2 border-blue-300 object-contain">
+                    <img src="/idv_assets/images/florian_brand.webp" alt="Florian Brand GIF" class="h-[3.5rem] w-auto border-2 border-blue-300 object-contain">
                     <div>
                         <h2 class="text-2xl font-bold text-zinc-100 leading-tight">Florian Brand</h2>
                         <p class="text-blue-400 font-bold leading-tight">The Fire Investigator</p>
@@ -448,9 +450,9 @@
                 <a href="https://ujayden.com/privacy_policy" target="_blank" title="Privacy Policy"><i class="ti ti-shield-lock"></i></a>
                 <a href="https://github.com/RyanFitzgerald/devportfolio" target="_blank" title="Site inspiration by RyanFitzgerald/devportfolio"><i class="ti ti-book-2"></i></a>
             </div>
-                <p class="mt-4 text-sm text-zinc-500">&copy; 2026 uJayden. All rights reserved.</p>
+                <p class="mt-4 text-sm text-zinc-500 hidden">&copy; 2026 uJayden. All rights reserved.</p>
                 <p class="text-xs text-zinc-500">Information may not be up-to-date. Privacy Policy applies.</p>
-                <p class="text-xs text-zinc-500">Image credits to their respective owners (i.e. NetEase).</p>
+                <p class="text-xs text-zinc-500">Image copyright belongs to their respective owners (i.e. NetEase).</p>
                 <p class="text-xs text-zinc-500">Last updated: May 20, 2026. Site version: 2.0</p>
         </aside>
         <!-- Removed classs: "hidden md:block"-->

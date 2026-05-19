@@ -142,12 +142,8 @@ nav .menu {
     align-items: flex-start;
 }
 
-.hero-content h2, .hero-content h1 {
-    white-space: nowrap;
-}
-
 .hero-content h2 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 0.25rem;
@@ -160,7 +156,7 @@ nav .menu {
 }
 
 .hero-content h1 {
-    font-size: 4.5rem;
+    font-size: 5rem;
     font-weight: 700;
 }
 
@@ -170,11 +166,55 @@ nav .menu {
     }
 }
 
+
 .hero-content p {
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 400;
     opacity: 0.9;
     color: var(--color-gray-300);
+}
+
+@media (max-width: 768px) {
+    .hero-content p {
+        font-size: 1rem;
+    }
+}
+
+@keyframes heroTextFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#hero .hero-text-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    animation: heroTextFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    will-change: opacity, transform;
+}
+#hero .hero-text-delay-1 {
+    animation-delay: 0.12s;
+}
+
+#hero .hero-text-delay-2 {
+    animation-delay: 0.28s;
+}
+
+#hero .hero-text-delay-3 {
+    animation-delay: 0.44s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #hero .hero-text-reveal {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
 }
 
 .section {

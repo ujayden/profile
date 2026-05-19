@@ -1,5 +1,4 @@
 'use strict';
-let defaultTheme = 'auto';
 const THEME_STORAGE_KEY = 'identityv-theme';
 const THEME_LABELS = {
     auto: 'Auto',
@@ -8,29 +7,9 @@ const THEME_LABELS = {
 };
 const THEME_SEQUENCE = ['auto', 'light', 'dark'];
 
-let currentThemePreference = 'dark'; //Accepts 'auto', 'light', or 'dark'
+let currentThemePreference = 'auto';
 let themeMediaQuery = null;
 let themeMediaListener = null;
-
-(function bootstrapTheme() {
-    const normalizeThemePreference = (value) => (value === 'light' || value === 'dark' ? value : 'auto');
-    const getSystemThemePreference = () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-    let preferredTheme = normalizeThemePreference(defaultTheme);
-
-    try {
-        const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-        if (storedTheme !== null) {
-            preferredTheme = normalizeThemePreference(storedTheme);
-        }
-    } catch (error) {
-        // Ignore storage errors and fall back to the configured default.
-    }
-
-    const resolvedTheme = preferredTheme === 'auto' ? getSystemThemePreference() : preferredTheme;
-    document.documentElement.setAttribute('data-theme', resolvedTheme);
-    document.documentElement.style.colorScheme = resolvedTheme;
-})();
 
 function normalizeThemePreference(value) {
     return value === 'light' || value === 'dark' ? value : 'auto';
