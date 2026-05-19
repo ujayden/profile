@@ -51,15 +51,16 @@
                     </span>
                 </button>
             </li>
-            <li class="relative flex items-center">
-                <a tabindex="0" role="button" aria-label="Language" data-i18n-aria-label="language_menu" class="hover:text-current !flex items-center peer cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></a>
-                <div class="absolute right-0 top-full pt-2 hidden peer-hover:block peer-focus:block hover:block focus-within:block z-[1]">
-                    <ul class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0 text-base-content">
+            <li class="dropdown dropdown-end dropdown-hover flex items-center">
+                <div tabindex="0" role="button" aria-label="Language" data-i18n-aria-label="language_menu" class="hover:text-current !flex items-center cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></div>
+                <div class="dropdown-content absolute right-0 top-full pt-2 z-[1]">
+                    <ul tabindex="0" class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0 text-base-content overflow-hidden">
                         <li class="m-0 p-0"><a data-lang="en" class="!my-0 rounded-none">English</a></li>
                         <li class="m-0 p-0"><a data-lang="zh-tw" class="!my-0 rounded-none">繁體中文</a></li>
                         <li class="m-0 p-0"><a data-lang="zh-cn" class="!my-0 rounded-none">简体中文</a></li>
                         <li class="m-0 p-0"><a data-lang="ja" class="!my-0 rounded-none">日本語</a></li>
-                </ul>
+                    </ul>
+                </div>
             </li>
         </ul>
     </nav>

@@ -3438,30 +3438,6 @@
   .\[--chkfg\:black\] {
     --chkfg: black;
   }
-  .peer-hover\:block {
-    &:is(:where(.peer):hover ~ *) {
-      @media (hover: hover) {
-        display: block;
-      }
-    }
-  }
-  .peer-focus\:block {
-    &:is(:where(.peer):focus ~ *) {
-      display: block;
-    }
-  }
-  .focus-within\:block {
-    &:focus-within {
-      display: block;
-    }
-  }
-  .hover\:block {
-    &:hover {
-      @media (hover: hover) {
-        display: block;
-      }
-    }
-  }
   .hover\:-translate-y-0\.5 {
     &:hover {
       @media (hover: hover) {
