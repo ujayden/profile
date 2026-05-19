@@ -11,21 +11,18 @@
     <meta name="robots" content="index, follow">
     <title data-i18n="page_title">uJayden's IdentityV Profile</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="/idv_assets/styles_tailwind.css">
-    <link rel="stylesheet" href="/libraries/leaflet/leaflet.css">
     <link rel="stylesheet" href="/libraries/glightbox/glightbox.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-
+    <link rel="stylesheet" href="/libraries/leaflet/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     <script src="/libraries/glightbox/glightbox.min.js" defer></script>
     <script src="/libraries/leaflet/leaflet.js" defer></script>
-    <script src="/idv_assets/idv_script.js" defer></script>
+    <script src="/idv_assets/idv_script.js"></script>
 </head>
-<body>
+<body class="theme-page">
 <div class="drawer">
     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
@@ -43,10 +40,19 @@
         <ul class="flex items-center">
             <li class="hidden md:block"><a href="https://ujayden.com" target="_blank">My Site</a></li>
             <li class="hidden md:block"><a href="https://tools.ujayden.com/" target="_blank">Toolbox</a></li>
+            <li class="relative flex items-center mr-2">
+                <button type="button" id="theme-toggle-trigger" data-theme-state="auto" class="hover:text-current !flex items-center cursor-pointer theme-trigger theme-swap" aria-label="Theme">
+                    <span class="theme-swap-icon-stack" aria-hidden="true">
+                        <i data-theme-icon="auto" class="ti ti-device-desktop theme-trigger-icon theme-swap-icon"></i>
+                        <i data-theme-icon="light" class="ti ti-sun theme-trigger-icon theme-swap-icon"></i>
+                        <i data-theme-icon="dark" class="ti ti-moon theme-trigger-icon theme-swap-icon"></i>
+                    </span>
+                </button>
+            </li>
             <li class="relative flex items-center">
                 <a tabindex="0" role="button" aria-label="Language" class="hover:text-current !flex items-center peer cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></a>
                 <div class="absolute right-0 top-full pt-2 hidden peer-hover:block peer-focus:block hover:block focus-within:block z-[1]">
-                    <ul class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0">
+                    <ul class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0 text-base-content">
                         <li class="m-0 p-0"><a data-lang="en" class="!my-0 rounded-none">English</a></li>
                         <li class="m-0 p-0"><a data-lang="zh-tw" class="!my-0 rounded-none">繁體中文</a></li>
                         <li class="m-0 p-0"><a data-lang="zh-cn" class="!my-0 rounded-none">简体中文</a></li>
@@ -196,7 +202,9 @@
         </div>
         <div class="md:w-2/3 text-lg leading-relaxed font-mono text-gray-300">
             <p>Hi! I'm uJayden, I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.</p>
+            <br>
             <p>Although I can play both survivor and hunter, I prefer survivor more. I like to play these mode: Ranked, Quick Match, and Duo Hunter. I don't play much of the other modes.</p>
+            <br>
             <p>Please feel free to invite me to team up or add me as a friend in the game! I will be glad to play with you and have fun together. However, I am not a professional player and may not be the best at the game. I may make mistakes sometimes, but I will try my best to play well and have fun with you!</p>
         </div>
     </section>
@@ -347,8 +355,8 @@
             </div>
             <div>
                 <h3 class="text-xl font-bold text-zinc-100">What Couple (CP) / Combination (CB) do you like / dislike in the game?</h3>
-                <p><span class="text-red-400 font-bold">No.</span> I am not interested / hate any specific CP or CB in the game. </p>
-                <p>It is totally okay if you like that. I am fine with any CP or CB in the game even involved Florian. I just don't have any preferences or dislikes on that. This is just a personal preference, and I respect everyone's choices.</p>
+                <p><span class="text-red-400 font-bold">None.</span> I do not have any particular likes or dislikes regarding any CP or CB in the game.</p>
+                <p>It is completely okay if you like that. I am fine with any CP or CB in the game, including those involving Florian. I just don't have any preferences or dislikes on that. This is just my personal preference, and I respect everyone's choices.</p>
                 <p class="text-xs text-zinc-500">This involved but not limited to: <span class="font-bold">Florian x Matthias</span>, <span class="font-bold">Florian x Richard</span>, Wax Artist x Forward, etc.</p>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
@@ -432,7 +440,7 @@
             <p class="text-sm">An IdentityV player who enjoys playing as Fire Investigator.</p>
             <p class="text-sm">Note: This profile site is not affiliated with NetEase or IdentityV.</p>
             <div class="flex flex-wrap gap-4 mt-4 text-xl">
-                <a href="https://blog.ujayden.com" target="_blank" title="Blog"><i class="ti ti-news"></i></a>
+                <a href="https://www.ujayden.com" target="_blank" title="Blog"><i class="ti ti-news"></i></a>
                 <a href="mailto:admin@ujayden.com" target="_blank" title="Email"><i class="ti ti-mail"></i></a>
                 <a href="https://github.com/uJayden" target="_blank" title="GitHub"><i class="ti ti-brand-github"></i></a>
                 <a href="https://x.com/ujayden_" target="_blank" title="X"><i class="ti ti-brand-x"></i></a>
@@ -463,17 +471,17 @@
     <div class="drawer-side z-[1000] !fixed">
         <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
         <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 gap-2 text-lg">
-            <li><a href="/" data-i18n="nav_home">Home</a></li>
-            <li><a href="#profile-card" data-i18n="nav_profile_card">Profile Card</a></li>
-            <li><a href="#gameplay-stats" data-i18n="nav_gameplay_stats">Stats</a></li>
-            <li><a href="#about" data-i18n="nav_about">About</a></li>
-            <li><a href="#favourite-character">Favourite Character</a></li>
-            <li><a href="#fun-facts">Fun Facts</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#message-box">Leave a Message</a></li>
+            <li><a href="/" data-i18n="nav_home"><i class="ti ti-home text-xl mr-2"></i> Home</a></li>
+            <li><a href="#profile-card" data-i18n="nav_profile_card"><i class="ti ti-id text-xl mr-2"></i> Profile Card</a></li>
+            <li><a href="#gameplay-stats" data-i18n="nav_gameplay_stats"><i class="ti ti-chart-bar text-xl mr-2"></i> Stats</a></li>
+            <li><a href="#about" data-i18n="nav_about"><i class="ti ti-user-circle text-xl mr-2"></i> About</a></li>
+            <li><a href="#favourite-character"><i class="ti ti-star text-xl mr-2"></i> Favourite Character</a></li>
+            <li><a href="#fun-facts"><i class="ti ti-message text-xl mr-2"></i> Fun Facts</a></li>
+            <li><a href="#faq"><i class="ti ti-zoom text-xl mr-2"></i> FAQ</a></li>
+            <li><a href="#message-box"><i class="ti ti-sign-right text-xl mr-2"></i> Leave a Message</a></li>
             <div class="divider my-0"></div>
-            <li><a href="https://ujayden.com" target="_blank">My Site</a></li>
-            <li><a href="https://tools.ujayden.com/" target="_blank">Toolbox</a></li>
+            <li><a href="https://ujayden.com" target="_blank"><i class="ti ti-app-window text-xl mr-2"></i> My Site</a></li>
+            <li><a href="https://tools.ujayden.com/" target="_blank"><i class="ti ti-hammer text-xl mr-2"></i> Toolbox</a></li>
             <div class="divider my-0"></div>
             <li><a href="#"><i class="ti ti-arrow-up text-xl mr-2"></i> Back to Top</a></li>
         </ul>

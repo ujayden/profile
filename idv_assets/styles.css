@@ -32,18 +32,30 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
+    color: white;
     border-bottom: 1px solid transparent; /* Placeholder to prevent shift */
 }
 
 nav.nav-scrolled {
-    background-color: rgba(255, 255, 255, 0.05); /* Lower opacity to reduce flashing */
+    background-color: color-mix(in oklab, var(--color-base-100) 90%, transparent);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    color: var(--color-base-content);
+    border-bottom: 1px solid color-mix(in oklab, var(--color-base-content) 12%, transparent);
+}
+
+[data-theme="dark"] nav.nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-nav a {
-    color: white; /* Ensure text is visible over the hero */
+nav a,
+nav button,
+nav label {
+    color: inherit;
     text-decoration: none;
     transition: opacity 0.3s ease;
 }
@@ -63,6 +75,10 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
+}
+
+nav .menu {
+    color: var(--color-base-content);
 }
 
 
@@ -213,4 +229,121 @@ h1{
 .section-heading::after {
     content: "";
     @apply absolute bottom-0 left-0 w-16 h-1.5 bg-blue-400 rounded-full;
+}
+
+html,
+body.theme-page {
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
+}
+
+/* Only remap the hardcoded dark surfaces in light theme.
+   Dark theme keeps the original depth and contrast. */
+html[data-theme="light"] body.theme-page [class*="bg-zinc-950"] {
+    background-color: var(--color-base-200);
+}
+
+html[data-theme="light"] body.theme-page [class*="bg-zinc-950/80"] {
+    background-color: color-mix(in oklab, var(--color-base-100) 82%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="bg-zinc-900"] {
+    background-color: var(--color-base-300);
+}
+
+html[data-theme="light"] body.theme-page [class*="border-white/10"],
+html[data-theme="light"] body.theme-page [class*="border-white/20"],
+html[data-theme="light"] body.theme-page [class*="border-gray-500/30"] {
+    border-color: color-mix(in oklab, var(--color-base-content) 12%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="border-white/5"] {
+    border-color: color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="bg-white/10"] {
+    background-color: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="hover:border-white/15"]:hover {
+    border-color: color-mix(in oklab, var(--color-base-content) 16%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="hover:bg-white/5"]:hover {
+    background-color: color-mix(in oklab, var(--color-base-content) 5%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="hover:text-zinc-200"]:hover {
+    color: color-mix(in oklab, var(--color-base-content) 82%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="text-zinc-100"] {
+    color: var(--color-base-content);
+}
+
+html[data-theme="light"] body.theme-page [class*="text-zinc-300"],
+html[data-theme="light"] body.theme-page [class*="text-gray-300"] {
+    color: color-mix(in oklab, var(--color-base-content) 78%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="text-zinc-400"] {
+    color: color-mix(in oklab, var(--color-base-content) 64%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="text-zinc-500"] {
+    color: color-mix(in oklab, var(--color-base-content) 52%, transparent);
+}
+
+html[data-theme="light"] body.theme-page [class*="text-zinc-600"] {
+    color: color-mix(in oklab, var(--color-base-content) 44%, transparent);
+}
+
+.theme-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-trigger-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.theme-swap {
+    position: relative;
+    background: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.theme-swap-icon-stack {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.theme-swap-icon {
+    display: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.theme-swap[data-theme-state="auto"] [data-theme-icon="auto"],
+.theme-swap[data-theme-state="light"] [data-theme-icon="light"],
+.theme-swap[data-theme-state="dark"] [data-theme-icon="dark"] {
+    display: inline-flex;
+}
+
+.theme-swap[data-theme-state="auto"] [data-theme-icon="auto"] {
+    transform: rotate(0deg);
+}
+
+.theme-swap[data-theme-state="light"] [data-theme-icon="light"] {
+    transform: rotate(0deg);
+}
+
+.theme-swap[data-theme-state="dark"] [data-theme-icon="dark"] {
+    transform: rotate(0deg);
 }

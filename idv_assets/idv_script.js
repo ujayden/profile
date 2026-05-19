@@ -1,7 +1,157 @@
 'use strict';
+let defaultTheme = 'auto';
+const THEME_STORAGE_KEY = 'identityv-theme';
+const THEME_LABELS = {
+    auto: 'Auto',
+    light: 'Light',
+    dark: 'Dark'
+};
+const THEME_SEQUENCE = ['auto', 'light', 'dark'];
+
+let currentThemePreference = 'dark'; //Accepts 'auto', 'light', or 'dark'
+let themeMediaQuery = null;
+let themeMediaListener = null;
+
+(function bootstrapTheme() {
+    const normalizeThemePreference = (value) => (value === 'light' || value === 'dark' ? value : 'auto');
+    const getSystemThemePreference = () => (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    let preferredTheme = normalizeThemePreference(defaultTheme);
+
+    try {
+        const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+        if (storedTheme !== null) {
+            preferredTheme = normalizeThemePreference(storedTheme);
+        }
+    } catch (error) {
+        // Ignore storage errors and fall back to the configured default.
+    }
+
+    const resolvedTheme = preferredTheme === 'auto' ? getSystemThemePreference() : preferredTheme;
+    document.documentElement.setAttribute('data-theme', resolvedTheme);
+    document.documentElement.style.colorScheme = resolvedTheme;
+})();
+
+function normalizeThemePreference(value) {
+    return value === 'light' || value === 'dark' ? value : 'auto';
+}
+
+function readStoredThemePreference() {
+    try {
+        return localStorage.getItem(THEME_STORAGE_KEY);
+    } catch (error) {
+        return null;
+    }
+}
+
+function getInitialThemePreference() {
+    const storedPreference = readStoredThemePreference();
+    if (storedPreference !== null) {
+        return normalizeThemePreference(storedPreference);
+    }
+
+    return normalizeThemePreference(typeof defaultTheme === 'undefined' ? 'auto' : defaultTheme);
+}
+
+function getSystemThemePreference() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function resolveEffectiveTheme(preference) {
+    const selectedPreference = normalizeThemePreference(preference);
+    return selectedPreference === 'auto' ? getSystemThemePreference() : selectedPreference;
+}
+
+function getNextThemePreference(preference) {
+    const selectedPreference = normalizeThemePreference(preference);
+    const currentIndex = THEME_SEQUENCE.indexOf(selectedPreference);
+    return THEME_SEQUENCE[(currentIndex + 1) % THEME_SEQUENCE.length];
+}
+
+function persistThemePreference(preference) {
+    try {
+        localStorage.setItem(THEME_STORAGE_KEY, normalizeThemePreference(preference));
+    } catch (error) {
+        // Ignore storage failures; the page still works without persistence.
+    }
+}
+
+function syncThemeController(preference) {
+    const selectedPreference = normalizeThemePreference(preference);
+    const themeTrigger = document.getElementById('theme-toggle-trigger');
+    const activeLabel = THEME_LABELS[selectedPreference];
+    const nextLabel = THEME_LABELS[getNextThemePreference(selectedPreference)];
+
+    if (themeTrigger) {
+        themeTrigger.setAttribute('aria-label', `Theme: ${activeLabel}. Click to switch to ${nextLabel}.`);
+        themeTrigger.setAttribute('data-theme-state', selectedPreference);
+    }
+}
+
+function applyThemePreference(preference, options = {}) {
+    const selectedPreference = normalizeThemePreference(preference);
+    const resolvedPreference = resolveEffectiveTheme(selectedPreference);
+
+    document.documentElement.setAttribute('data-theme', resolvedPreference);
+    document.documentElement.style.colorScheme = resolvedPreference;
+    currentThemePreference = selectedPreference;
+
+    if (options.persist) {
+        persistThemePreference(selectedPreference);
+    }
+
+    syncThemeController(selectedPreference);
+}
+
+function syncThemePreferenceFromMediaQuery() {
+    if (currentThemePreference !== 'auto') {
+        return;
+    }
+
+    applyThemePreference('auto');
+}
+
+function bindSystemThemeListener() {
+    if (themeMediaQuery) {
+        return;
+    }
+
+    themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    themeMediaListener = syncThemePreferenceFromMediaQuery;
+
+    if (typeof themeMediaQuery.addEventListener === 'function') {
+        themeMediaQuery.addEventListener('change', themeMediaListener);
+    } else if (typeof themeMediaQuery.addListener === 'function') {
+        themeMediaQuery.addListener(themeMediaListener);
+    }
+}
+
+function initThemeController() {
+    const themeTrigger = document.getElementById('theme-toggle-trigger');
+
+    applyThemePreference(getInitialThemePreference());
+    bindSystemThemeListener();
+
+    if (themeTrigger) {
+        themeTrigger.addEventListener('click', () => {
+            const nextPreference = getNextThemePreference(currentThemePreference);
+            applyThemePreference(nextPreference, { persist: true });
+        });
+    }
+
+    window.addEventListener('storage', event => {
+        if (event.key === THEME_STORAGE_KEY || event.key === null) {
+            applyThemePreference(getInitialThemePreference());
+        }
+    });
+}
 let AUTO_DETECT_DEV_MODE = true; // Set to false to disable auto-detection of developer mode
 
 // Drawer close on internal link click
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeController();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const drawerLinks = document.querySelectorAll('.drawer-side .menu a');
     const drawerToggle = document.getElementById('my-drawer');
