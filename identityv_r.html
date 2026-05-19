@@ -32,7 +32,7 @@
     <nav>
         <ul class="flex items-center">
             <li class="relative flex items-center mr-2">
-                <label for="my-drawer" id="drawer-btn" tabindex="0" role="button" aria-label="Open menu" class="hover:text-current !flex items-center cursor-pointer"><i class="ti ti-menu-2 text-xl leading-none"></i></label>
+                <label for="my-drawer" id="drawer-btn" tabindex="0" role="button" aria-label="Open menu" data-i18n-aria-label="menu_open" class="hover:text-current !flex items-center cursor-pointer"><i class="ti ti-menu-2 text-xl leading-none"></i></label>
             </li>
             <li class="hidden md:block"><a href="/" data-i18n="nav_home">Home</a></li>
             <li class="hidden md:block"><a href="#profile-card" data-i18n="nav_profile_card">Profile Card</a></li>
@@ -40,10 +40,10 @@
             <li class="hidden md:block"><a href="#about" data-i18n="nav_about">About</a></li>
         </ul>
         <ul class="flex items-center">
-            <li class="hidden md:block"><a href="https://ujayden.com" target="_blank">My Site</a></li>
-            <li class="hidden md:block"><a href="https://tools.ujayden.com/" target="_blank">Toolbox</a></li>
+            <li class="hidden md:block"><a href="https://ujayden.com" target="_blank" data-i18n="nav_my_site">My Site</a></li>
+            <li class="hidden md:block"><a href="https://tools.ujayden.com/" target="_blank" data-i18n="nav_toolbox">Toolbox</a></li>
             <li class="relative flex items-center mr-2">
-                <button type="button" id="theme-toggle-trigger" data-theme-state="auto" class="hover:text-current !flex items-center cursor-pointer theme-trigger theme-swap" aria-label="Theme">
+                <button type="button" id="theme-toggle-trigger" data-theme-state="auto" data-i18n-aria-label="theme_toggle" class="hover:text-current !flex items-center cursor-pointer theme-trigger theme-swap" aria-label="Theme">
                     <span class="theme-swap-icon-stack" aria-hidden="true">
                         <i data-theme-icon="auto" class="ti ti-device-desktop theme-trigger-icon theme-swap-icon"></i>
                         <i data-theme-icon="light" class="ti ti-sun theme-trigger-icon theme-swap-icon"></i>
@@ -52,7 +52,7 @@
                 </button>
             </li>
             <li class="relative flex items-center">
-                <a tabindex="0" role="button" aria-label="Language" class="hover:text-current !flex items-center peer cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></a>
+                <a tabindex="0" role="button" aria-label="Language" data-i18n-aria-label="language_menu" class="hover:text-current !flex items-center peer cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></a>
                 <div class="absolute right-0 top-full pt-2 hidden peer-hover:block peer-focus:block hover:block focus-within:block z-[1]">
                     <ul class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0 text-base-content">
                         <li class="m-0 p-0"><a data-lang="en" class="!my-0 rounded-none">English</a></li>
@@ -70,9 +70,9 @@
         <div class="hero-bottom-fade"></div>
         <img src="/idv_assets/images/hero_image.webp" alt="Florian Brand from Identity V relaxing against a fallen log in a moonlit grassy field. He wears a yellow jacket, blue overalls, a red neckerchief, and a straw hat, smiling warmly as he points up at a glowing firefly." loading="eager">
         <div class="hero-content h-full w-full">
-            <h2 class="hero-text-reveal hero-text-delay-1">Hello!</h2>
-            <h1 class="hero-text-reveal hero-text-delay-2" style="text-shadow: 0 2px 6px rgba(0,0,0,0.3);">I'm <span class="text-blue-500">uJayden</span></h1>
-            <p class="hero-text-reveal hero-text-delay-3">An IdentityV player who enjoys playing as Fire Investigator.</p>
+            <h2 data-i18n="hero_greeting" class="hero-text-reveal hero-text-delay-1">Hello!</h2>
+            <h1 data-i18n-html="hero_intro" class="hero-text-reveal hero-text-delay-2" style="text-shadow: 0 2px 6px rgba(0,0,0,0.3);">I'm <span class="text-blue-500">uJayden</span></h1>
+            <p data-i18n="hero_tagline" class="hero-text-reveal hero-text-delay-3">An IdentityV player who enjoys playing as Fire Investigator.</p>
         </div>
     </div>
     <section id="profile-card" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start overflow-hidden">
@@ -83,26 +83,26 @@
             <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 min-h-0 flex flex-col lg:flex-row gap-8 items-center">
                 <div class="space-y-4 flex-1 min-w-0 w-full">
                     <div class="rounded-lg border border-white/10 bg-zinc-900/70 p-4 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 min-h-0">
-                        <p class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Asia Server</p>
+                        <p data-i18n="asia_server_label" class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Asia Server</p>
                         <h2 class="text-lg font-semibold tracking-tight text-zinc-100">火災調查員฀</h2>
                         <div class="mt-4 flex items-center gap-2 text-sm leading-7 text-zinc-400">
-                            <span>ID:</span>
+                            <span data-i18n="id_label">ID:</span>
                             <span class="font-mono text-zinc-400">16938170</span>
                             <div class="tooltip tooltip-top" data-tip="Copy ID for Asia server">
-                                <button data-copy-id="16938170" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for Asia server">
+                                <button data-copy-id="16938170" data-i18n-aria-label="copy_id_asia" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for Asia server">
                                     <i class="ti ti-copy text-base"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div class="rounded-lg border border-white/10 bg-zinc-900/70 p-4 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 min-h-0">
-                        <p class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">China Server</p>
+                        <p data-i18n="china_server_label" class="mb-2 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">China Server</p>
                         <h2 class="text-lg font-semibold tracking-tight text-zinc-100">哈基火灾调查员</h2>
                         <div class="mt-4 flex items-center gap-2 text-sm leading-7 text-zinc-400">
-                            <span>ID:</span>
+                            <span data-i18n="id_label">ID:</span>
                             <span class="font-mono text-zinc-400">301080114</span>
                             <div class="tooltip tooltip-top" data-tip="Copy ID for China server">
-                                <button data-copy-id="301080114" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for China server">
+                                <button data-copy-id="301080114" data-i18n-aria-label="copy_id_china" class="copy-id-btn inline-flex h-8 w-8 items-center justify-center rounded-md text-zinc-500 transition hover:bg-white/5 hover:text-zinc-200" aria-label="Copy ID for China server">
                                     <i class="ti ti-copy text-base"></i>
                                 </button>
                             </div>
@@ -123,46 +123,46 @@
     <section id="gameplay-stats" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start">
         <div class="md:w-1/3 shrink-0">
             <h1 data-i18n="gameplay_stats_title" class="section-heading">Gameplay Stats</h1>
-            <p class="mt-2 text-s font-medium uppercase tracking-[0.14em] text-zinc-500">Updated: Dec 1, 2025</p>
+            <p data-i18n="gameplay_stats_updated" class="mt-2 text-s font-medium uppercase tracking-[0.14em] text-zinc-500">Updated: Dec 1, 2025</p>
         </div>
         <div class="md:w-2/3 flex flex-col gap-8 w-full">
             <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-6 min-h-0 w-full flex flex-col gap-10">
                 <div>
-                    <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Current Season</h2>
+                    <h2 data-i18n="current_season_title" class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Current Season</h2>
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
                         <div class="flex-1 flex items-center gap-4">
                             <img src="/idv_assets/images/s-5-trophy.png" alt="Survivor Tier" class="w-16 h-16 object-contain drop-shadow-md" loading="lazy">
                             <div>
-                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
-                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier V - I</h3>
+                            <p data-i18n="survivor_label" class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
+                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier V - I</h3>
                             </div>
                         </div>
                         <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
                         <div class="flex-1 flex items-center gap-4">
                             <img src="/idv_assets/images/h-4-trophy.png" alt="Hunter Tier" class="w-16 h-16 object-contain drop-shadow-md" loading="lazy">
                             <div>
-                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
-                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier IV - I</h3>
+                            <p data-i18n="hunter_label" class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
+                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier IV - I</h3>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Historical Peak</h2>
+                    <h2 data-i18n="historical_peak_title" class="text-xl font-semibold tracking-tight text-zinc-100 mb-6">Historical Peak</h2>
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 p-5 w-full flex flex-col md:flex-row gap-4 md:gap-8">
                         <div class="flex-1 flex items-center gap-4">
                             <img src="/idv_assets/images/s-7-basic_trophy.png" alt="Historical Survivor Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
                             <div>
-                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
-                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VII - 2 Star(s)</h3>
+                            <p data-i18n="survivor_label" class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Survivor</p>
+                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VII - 2 Star(s)</h3>
                             </div>
                         </div>
                         <div class="hidden md:block w-px bg-white/10 self-stretch"></div>
                         <div class="flex-1 flex items-center gap-4">
                             <img src="/idv_assets/images/h-6-trophy.png" alt="Historical Hunter Tier" class="w-16 h-16 object-contain max-h-16 drop-shadow-md" loading="lazy">
                             <div>
-                                <p class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
-                                <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VI - V</h3>
+                            <p data-i18n="hunter_label" class="mb-1 text-xs font-medium uppercase tracking-[0.14em] text-zinc-500">Hunter</p>
+                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Tier VI - V</h3>
                             </div>
                         </div>
                     </div>
@@ -170,15 +170,15 @@
             </div>
             
             <div class="rounded-xl border border-white/10 bg-zinc-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition duration-200 hover:-translate-y-0.5 hover:border-white/15 p-5 min-h-0 w-full">
-                <h2 class="text-xl font-semibold tracking-tight text-zinc-100 mb-4">Character Knowledge</h2>
+                <h2 data-i18n="character_knowledge_title" class="text-xl font-semibold tracking-tight text-zinc-100 mb-4">Character Knowledge</h2>
                 <div class="flex flex-col gap-3">
                     <div class="rounded-lg bg-zinc-900/70 border border-white/5 py-3 px-5 w-full flex flex-col md:flex-row gap-4 items-center justify-between">
                         <div class="flex-1 w-full text-center md:text-left">
-                            <h3 class="text-lg font-semibold tracking-tight text-zinc-100">Fire Investigator</h3>
+                            <h3 data-i18n="fire_investigator_label" class="text-lg font-semibold tracking-tight text-zinc-100">Fire Investigator</h3>
                         </div>
                         <div class="flex flex-row gap-4 md:gap-6 items-center shrink-0">
                             <div class="flex flex-col items-center md:items-start gap-1">
-                                <p class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Current</p>
+                                <p data-i18n="current_label" class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Current</p>
                                 <div class="flex flex-row items-center gap-2">
                                     <img src="/idv_assets/images/Badge_Survivor_C.png" alt="Current Badge" class="h-8 w-auto object-contain drop-shadow-md">
                                     <span class="text-sm font-semibold text-zinc-600">-</span>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="w-px h-8 bg-white/10 self-stretch my-auto"></div>
                             <div class="flex flex-col items-center md:items-start gap-1">
-                                <p class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Highest</p>
+                                <p data-i18n="highest_label" class="text-[10px] font-medium uppercase tracking-[0.14em] text-zinc-500">Highest</p>
                                 <div class="flex flex-row items-center gap-2">
                                     <img src="/idv_assets/images/Badge_Survivor_A.webp" alt="Highest Badge" class="h-8 w-auto object-contain drop-shadow-md">
                                     <span class="text-sm font-semibold text-zinc-300">7,143 pts</span>
@@ -203,34 +203,34 @@
             <h1 data-i18n="about_title" class="section-heading">About Me</h1>
         </div>
         <div class="md:w-2/3 text-lg leading-relaxed font-mono text-gray-300">
-            <p>Hi! I'm uJayden, I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.</p>
+            <p data-i18n="about_intro_1">Hi! I'm uJayden, I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.</p>
             <br>
-            <p>Although I can play both survivor and hunter, I prefer survivor more. I like to play these mode: Ranked, Quick Match, and Duo Hunter. I don't play much of the other modes.</p>
+            <p data-i18n="about_intro_2">Although I can play both survivor and hunter, I prefer survivor more. I like to play these mode: Ranked, Quick Match, and Duo Hunter. I don't play much of the other modes.</p>
             <br>
-            <p>Please feel free to invite me to team up or add me as a friend in the game! I will be glad to play with you and have fun together. However, I am not a professional player and may not be the best at the game. I may make mistakes sometimes, but I will try my best to play well and have fun with you!</p>
+            <p data-i18n="about_intro_3">Please feel free to invite me to team up or add me as a friend in the game! I will be glad to play with you and have fun together. However, I am not a professional player and may not be the best at the game. I may make mistakes sometimes, but I will try my best to play well and have fun with you!</p>
         </div>
     </section>
     <section id="favourite-character" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start">
         <div class="md:w-1/3 shrink-0">
-            <h1 class="section-heading">Favourite Character</h1>
+            <h1 data-i18n="favourite_character_title" class="section-heading">Favourite Character</h1>
         </div>
         <div class="md:w-2/3 flex flex-col lg:flex-row gap-8 items-center lg:items-stretch text-lg leading-relaxed font-mono text-gray-300">
             <div class="flex-1 h-full">
                 <div class="flex items-center gap-4 mb-2">
                     <img src="/idv_assets/images/florian_brand.webp" alt="Florian Brand GIF" class="h-[3.5rem] w-auto border-2 border-blue-300 object-contain">
                     <div>
-                        <h2 class="text-2xl font-bold text-zinc-100 leading-tight">Florian Brand</h2>
-                        <p class="text-blue-400 font-bold leading-tight">The Fire Investigator</p>
+                        <h2 data-i18n="character_name" class="text-2xl font-bold text-zinc-100 leading-tight">Florian Brand</h2>
+                        <p data-i18n="character_role" class="text-blue-400 font-bold leading-tight">The Fire Investigator</p>
                     </div>
                 </div>
-                <p>This is my favorite character in Identity V. </p>
-                <p>I like Florian not only because he is cute and cool, but also because of his tragic backstory, which makes me sympathize with him.</p>
+                <p data-i18n="favourite_character_p1">This is my favorite character in Identity V. </p>
+                <p data-i18n="favourite_character_p2">I like Florian not only because he is cute and cool, but also because of his tragic backstory, which makes me sympathize with him.</p>
                 <br>
-                <p>If you read Character Day letter carefully, you will found that he is actually a kind-hearted and caring character by nature. His darker and more unstable side only appeared because things happened at the orphanage. Although tragic backstories are a common storytelling technique, Florian’s profession, his former warm home, and his personality, behavior, and aspirations make him truly special to me. I also like his two-faced complexity and moral ambiguity, with the contrast on his kindness and hidden darkness.</p>
+                <p data-i18n="favourite_character_p3">If you read Character Day letter carefully, you will found that he is actually a kind-hearted and caring character by nature. His darker and more unstable side only appeared because things happened at the orphanage. Although tragic backstories are a common storytelling technique, Florian’s profession, his former warm home, and his personality, behavior, and aspirations make him truly special to me. I also like his two-faced complexity and moral ambiguity, with the contrast on his kindness and hidden darkness.</p>
                 <br>
-                <p>To Conclude: At first, I only thought Florian looked cool because of the firefighter design. But after reading his story and personality, Florian slowly became my one true favorite character in Identity V.</p>
+                <p data-i18n="favourite_character_p4">To Conclude: At first, I only thought Florian looked cool because of the fire investigator design. But after reading his story and personality, Florian slowly became my one true favorite character in Identity V.</p>
                 <br>
-                <p>Anyway, who can refuse to love a handsome firefighter with a charming smile?</p>
+                <p data-i18n="favourite_character_p5">Anyway, who can refuse to like a kind, handsome firefighter with a charming smile?</p>
             </div>
             <div class="shrink-0 w-48 md:w-56 lg:w-64 flex flex-col justify-between gap-6 py-2">
                 <img src="/idv_assets/images/florian_spraying.webp" alt="Florian Brand" class="w-full h-auto object-contain drop-shadow-lg rounded-xl">
@@ -241,102 +241,102 @@
 
     <section id="fun-facts" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start">
         <div class="md:w-1/3 shrink-0">
-            <h1 class="section-heading">Fun Facts</h1>
+            <h1 data-i18n="fun_facts_title" class="section-heading">Fun Facts</h1>
         </div>
         <div class="md:w-2/3 w-full flex flex-col gap-4 text-lg leading-relaxed font-mono text-gray-300">
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q1" class="collapse-title text-xl font-bold text-zinc-100">
                     What is your most used Costume for the Fire Investigator?
                 </div>
                 <div class="collapse-content flex flex-col gap-4">
-                    <p class="font-bold text-blue-400">The original Costume</p>
-                    <p>I buy all skin except the S-Tier (TBH: I am regret for that) for Florian. However, my most favourite skin is the original skin - The one of blue firefighter uniform. I guess it is because it look more "professional" and "hero"?</p>
+                    <p data-i18n="fun_fact_a1_title" class="font-bold text-blue-400">The original Costume</p>
+                    <p data-i18n="fun_fact_a1_body">I buy all skin except the S-Tier (TBH: I am regret for that) for Florian. However, my most favourite skin is the original skin - The one of blue firefighter uniform. I guess it is because it look more "professional" and "hero"?</p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q2" class="collapse-title text-xl font-bold text-zinc-100">
                     Why the name "uJayden"?
                 </div>
                 <div class="collapse-content">
                     <ul class="list-disc pl-5">
-                        <li>uJayden's "u" stands for uncle.</li>
-                        <li>Previous name is uncle-jayden, but it's too long to type so I shortened it to uJayden.</li>
+                        <li data-i18n="fun_fact_a2_1">uJayden's "u" stands for uncle.</li>
+                        <li data-i18n="fun_fact_a2_2">Previous name is uncle-jayden, but it's too long to type so I shortened it to uJayden.</li>
                     </ul>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q3" class="collapse-title text-xl font-bold text-zinc-100">
                     My Nationality & Location
                 </div>
                 <div class="collapse-content flex flex-col gap-4"> 
-                    <p>I am from Hong Kong! I can speak Cantonese, English, and Mandarin, so feel free to communicate with me in any of these languages!</p>
+                    <p data-i18n="fun_fact_a3">I am from Hong Kong! I can speak Cantonese, English, and Mandarin, so feel free to communicate with me in any of these languages!</p>
                     <div id="map" class="w-full relative z-0"></div>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q4" class="collapse-title text-xl font-bold text-zinc-100">
                     Personal Life
                 </div>
                 <div class="collapse-content">
-                    <p>I am a university student. When I not doing my assignments or studying, I like watch YouTube, chat with friends, and play games (including IdentityV of course!). I am also interested in technology and programming, so I like to build some small projects in my free time.</p>
+                    <p data-i18n="fun_fact_a4_1">I am a university student. When I not doing my assignments or studying, I like watch YouTube, chat with friends, and play games (including IdentityV of course!). I am also interested in technology and programming, so I like to build some small projects in my free time.</p>
                     <br>
-                    <p>I play these games other than IdentityV: Honkai: Star Rail, Minecraft, Cities: Skylines, Oxygen Not Included, Danganronpa series, etc.</p>
+                    <p data-i18n="fun_fact_a4_2">I play these games other than IdentityV: Honkai: Star Rail, Minecraft, Cities: Skylines, Oxygen Not Included, Danganronpa series, etc.</p>
                     <br>
-                    <p>However, I seldom watch anime.</p>
+                    <p data-i18n="fun_fact_a4_3">However, I seldom watch anime.</p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q5" class="collapse-title text-xl font-bold text-zinc-100">
                     More about my path outside of games
                 </div>
                 <div class="collapse-content">
-                    <p>I am a student who is currently studying at Land Surveying and Geo-Informatics Department in The Hong Kong Polytechnic University.</p>
+                    <p data-i18n="fun_fact_a5_1">I am a student who is currently studying at Land Surveying and Geo-Informatics Department in The Hong Kong Polytechnic University.</p>
                     <br>
-                    <p><span class="italic">When will IdentityV add a Geographer? Wait, that's Lawyer, as he has a Map......?</span></p>
+                    <p data-i18n-html="fun_fact_a5_2"><span class="italic">When will IdentityV add a Geographer? Wait, that's Lawyer, as he has a Map......?</span></p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q6" class="collapse-title text-xl font-bold text-zinc-100">
                     Why I play IdentityV?
                 </div>
                 <div class="collapse-content">
-                    <p>My friend refer me on secondary school Form 1. We used to play together, but this is a long time ago and we don't play together anymore.</p>
-                    <p>For now, I just play because of Florian Brand, the Fire Investigator.</p>
+                    <p data-i18n="fun_fact_a6_1">My friend refer me on secondary school Form 1. We used to play together, but this is a long time ago and we don't play together anymore.</p>
+                    <p data-i18n="fun_fact_a6_2">For now, I just play because of Florian Brand, the Fire Investigator.</p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q7" class="collapse-title text-xl font-bold text-zinc-100">
                     What other characters do you like?
                 </div>
                 <div class="collapse-content">
                     <ul class="list-disc pl-5">
-                        <li>Andrew Kreiss, the Grave Keeper</li>
+                        <li data-i18n="fun_fact_a7_1">Andrew Kreiss, the Grave Keeper</li>
                     </ul>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q8" class="collapse-title text-xl font-bold text-zinc-100">
                     Things I Am Bad At
                 </div>
                 <div class="collapse-content">
-                    <p>Kiting hunter, especally "Breaking Wheel".</p>
+                    <p data-i18n="fun_fact_a8">Kiting hunter, especally "Breaking Wheel".</p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" checked /> 
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="fun_fact_q9" class="collapse-title text-xl font-bold text-zinc-100">
                     Why I Made This Profile site?
                 </div>
                 <div class="collapse-content">
-                    <p>Cuz everyone is making one on lit.link. So I want to build a more personalized one on my own domain with more freedom and customization.</p>
+                    <p data-i18n="fun_fact_a9">Cuz everyone is making one on lit.link. So I want to build a more personalized one on my own domain with more freedom and customization.</p>
                 </div>
             </div>
         </div>
@@ -344,53 +344,53 @@
 
     <section id="faq" class="section flex flex-col md:flex-row gap-8 md:gap-16 items-start">
         <div class="md:w-1/3 shrink-0">
-            <h1 class="section-heading">FAQ</h1>
+            <h1 data-i18n="faq_title" class="section-heading">FAQ</h1>
         </div>
         <div class="md:w-2/3 text-lg leading-relaxed font-mono text-gray-300 space-y-10">
             <div>
-                <h3 class="text-xl font-bold text-zinc-100">What is your gender? [Please read me]</h3>
-                <p>I am <span class="text-blue-400 font-bold">male</span>.</p>
+                <h3 data-i18n="faq_gender_q" class="text-xl font-bold text-zinc-100">What is your gender? [Important]</h3>
+                <p data-i18n-html="faq_gender_a">I am <span class="text-blue-400 font-bold">male</span>.</p>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-zinc-100">Can I add your friend in the game?</h3>
-                <p>Yes, sure! But please remember to clarify who you are or state the reason for the friend request. Sorry, but I may not accept friend requests from strangers without any introduction.</p>
+                <h3 data-i18n="faq_add_friend_q" class="text-xl font-bold text-zinc-100">Can I add your friend in the game?</h3>
+                <p data-i18n="faq_add_friend_a">Yes, sure! But please remember to clarify who you are or state the reason for the friend request. Sorry, but I may not accept friend requests from strangers without any introduction.</p>
             </div>
             <div>
-                <h3 class="text-xl font-bold text-zinc-100">What Couple (CP) / Combination (CB) do you like / dislike in the game?</h3>
-                <p><span class="text-red-400 font-bold">None.</span> I do not have any particular likes or dislikes regarding any CP or CB in the game.</p>
-                <p>It is completely okay if you like that. I am fine with any CP or CB in the game, including those involving Florian. I just don't have any preferences or dislikes on that. This is just my personal preference, and I respect everyone's choices.</p>
-                <p class="text-xs text-zinc-500">This involved but not limited to: <span class="font-bold">Florian x Matthias</span>, <span class="font-bold">Florian x Richard</span>, Wax Artist x Forward, etc.</p>
+                <h3 data-i18n="faq_cp_q" class="text-xl font-bold text-zinc-100">What Couple (CP) / Combination (CB) do you like / dislike in the game?</h3>
+                <p data-i18n-html="faq_cp_a1"><span class="text-red-400 font-bold">None.</span> I do not have any particular likes or dislikes regarding any CP or CB in the game.</p>
+                <p data-i18n="faq_cp_a2">It is completely okay if you like that. I am fine with any CP or CB in the game, including those involving Florian. I just don't have any preferences or dislikes on that. This is just my personal preference, and I respect everyone's choices.</p>
+                <p data-i18n-html="faq_cp_a3" class="text-xs text-zinc-500">This involved but not limited to: <span class="font-bold">Florian x Matthias</span>, <span class="font-bold">Florian x Richard</span>, Wax Artist x Forward, etc.</p>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" />
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="faq_social_q" class="collapse-title text-xl font-bold text-zinc-100">
                     Can I add your friend on Discord / Instagram? How long do you need to reply to my messages?
                 </div>
                 <div class="collapse-content flex flex-col gap-4">
-                    <p>Maybe in the future, but currently I prefer to keep my social media accounts private and only share them with close friends. Sorry for any inconvenience.</p>
-                    <p>Maybe @ujayden_25 on Instagram & Threads! Go to uJayden_25 on <a href="https://instagram.com/ujayden_25" target="_blank" class="faq-link text-blue-400">Instagram</a> or <a href="https://threads.net/@ujayden_25" target="_blank" class="faq-link text-blue-400">Threads</a>.</p>
-                    <p>I seldom check or I will ignore DMs on social media, so if you want to contact me, please send me an email to <a href="mailto:admin@ujayden.com" class="faq-link text-blue-400">admin@ujayden.com</a>.</p>
+                    <p data-i18n="faq_social_a1">Maybe in the future, but currently I prefer to keep my social media accounts private and only share them with close friends. Sorry for any inconvenience.</p>
+                    <p data-i18n-html="faq_social_a2">Maybe @ujayden_25 on Instagram & Threads! Go to uJayden_25 on <a href="https://instagram.com/ujayden_25" target="_blank" class="faq-link text-blue-400">Instagram</a> or <a href="https://threads.net/@ujayden_25" target="_blank" class="faq-link text-blue-400">Threads</a>.</p>
+                    <p data-i18n-html="faq_social_a3">I seldom check or I will ignore DMs on social media, so if you want to contact me, please send me an email to <a href="mailto:admin@ujayden.com" class="faq-link text-blue-400">admin@ujayden.com</a>.</p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" />
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="faq_opinion_q" class="collapse-title text-xl font-bold text-zinc-100">
                     Looks like I have having different opinions with you on the game / gender issues / AI Content Generation / Politics. Can I follow you / add you as a friend?
                 </div>
                 <div class="collapse-content flex flex-col gap-4">
-                    <p>Of course! People can have different opinions, and I respect that. I am not a kid that decline for people with different opinions.</p>
+                    <p data-i18n="faq_opinion_a">Of course! People can have different opinions, and I respect that. I am not a kid that decline for people with different opinions.</p>
                 </div>
             </div>
             <div class="collapse collapse-plus bg-zinc-900/70 border border-white/10 rounded-xl shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
                 <input type="checkbox" />
-                <div class="collapse-title text-xl font-bold text-zinc-100">
+                <div data-i18n="faq_dealbreaker_q" class="collapse-title text-xl font-bold text-zinc-100">
                     What is your dealbreaker / turn-off?
                 </div>
                 <div class="collapse-content flex flex-col gap-4">
-                    <p>Maybe not. I seldom block or restrict people on social media.</p>
-                    <p>However, please do not make joke / inappropriate content about Florian Brand. Do not send DM about that.</p>
-                    <p>And let's make conversation in a respectful way. Try not to have toxic or aggressive conversations. Respect is the key to communication.</p>
-                    <p class="text-xs text-zinc-500">If you got blocked / restricted / unfollowed by me on social media, it usually because you post inappropriate content about Florian Brand, or making toxic content on gender issues.</p>
+                    <p data-i18n="faq_dealbreaker_a1">Maybe not. I seldom block or restrict people on social media.</p>
+                    <p data-i18n="faq_dealbreaker_a2">However, please do not make joke / inappropriate content about Florian Brand. Do not send DM about that.</p>
+                    <p data-i18n="faq_dealbreaker_a3">And let's make conversation in a respectful way. Try not to have toxic or aggressive conversations. Respect is the key to communication.</p>
+                    <p data-i18n="faq_dealbreaker_a4" class="text-xs text-zinc-500">If you got blocked / restricted / unfollowed by me on social media, it usually because you post inappropriate content about Florian Brand, or making toxic content on gender issues.</p>
                 </div>
             </div>
         </div>
@@ -405,32 +405,32 @@
                 <div class="absolute inset-0 z-10 bg-zinc-950/80 backdrop-blur-sm flex items-center justify-center p-6 text-center">
                     <div class="space-y-4">
                         <i class="ti ti-tool text-4xl text-blue-400"></i>
-                        <h3 class="text-xl font-bold text-zinc-100">Feature Under Development</h3>
-                        <p class="text-zinc-400 max-w-xs mx-auto text-sm">This feature is not available yet. I will implement it as soon as possible.</p>
+                        <h3 data-i18n="feature_under_development_title" class="text-xl font-bold text-zinc-100">Feature Under Development</h3>
+                        <p data-i18n="feature_under_development_text" class="text-zinc-400 max-w-xs mx-auto text-sm">This feature is not available yet. I will implement it as soon as possible.</p>
                     </div>
                 </div>
                 
                 <form id="contact-form" class="space-y-6 opacity-20 pointer-events-none">
                     <div class="form-control w-full">
                         <label class="label">
-                            <span class="label-text text-zinc-300">Name</span>
+                            <span data-i18n="name_label" class="label-text text-zinc-300">Name</span>
                         </label>
-                        <input type="text" id="name" placeholder="Your Nickname" class="input input-bordered w-full bg-zinc-900 border-white/10 text-zinc-100 focus:border-blue-500" required />
+                        <input type="text" id="name" data-i18n-placeholder="name_placeholder" placeholder="Your Nickname" class="input input-bordered w-full bg-zinc-900 border-white/10 text-zinc-100 focus:border-blue-500" required />
                     </div>
                     <div class="form-control w-full">
                         <label class="label">
-                            <span class="label-text text-zinc-300">Message Content</span>
+                            <span data-i18n="message_content_label" class="label-text text-zinc-300">Message Content</span>
                         </label>
-                        <textarea id="content" class="textarea textarea-bordered h-32 w-full bg-zinc-900 border-white/10 text-zinc-100 focus:border-blue-500 resize-none" placeholder="Type your message here..." required></textarea>
+                        <textarea id="content" data-i18n-placeholder="message_placeholder" class="textarea textarea-bordered h-32 w-full bg-zinc-900 border-white/10 text-zinc-100 focus:border-blue-500 resize-none" placeholder="Type your message here..." required></textarea>
                     </div>
                     <div class="form-control">
                         <label class="label cursor-pointer justify-start gap-4">
                             <input type="checkbox" id="privacy-policy" class="checkbox border-white/20 [--chkbg:theme(colors.blue.400)] [--chkfg:black]" required />
-                            <span class="label-text text-zinc-400 whitespace-normal text-left">I agree to the <a href="/privacy_policy" target="_blank" class="faq-link text-blue-400">Privacy Policy</a> and <a href="/terms_of_service" target="_blank" class="faq-link text-blue-400">Terms of Service</a></span>
+                            <span data-i18n-html="agree_terms_text" class="label-text text-zinc-400 whitespace-normal text-left">I agree to the <a href="/privacy_policy" target="_blank" class="faq-link text-blue-400">Privacy Policy</a> and <a href="/terms_of_service" target="_blank" class="faq-link text-blue-400">Terms of Service</a></span>
                         </label>
                     </div>
                     <div class="form-control mt-6">
-                        <button type="submit" class="btn bg-blue-400 hover:bg-blue-500 border-none text-zinc-950 w-full md:w-max px-10">Submit Message</button>
+                        <button type="submit" data-i18n="submit_button" class="btn bg-blue-400 hover:bg-blue-500 border-none text-zinc-950 w-full md:w-max px-10">Submit Message</button>
                     </div>
                 </form>
             </div>
@@ -438,22 +438,22 @@
     </section>
     <footer class="flex flex-col md:flex-row justify-between items-start md:items-end footer pt-10 pb-0 px-16 lg:px-48 bg-base-200 text-base-content border-t border-gray-500/30">
         <aside class="pb-10 w-full md:w-auto">
-            <h3 class="text-xl font-bold">uJayden</h3>
-            <p class="text-sm">An IdentityV player who enjoys playing as Fire Investigator.</p>
-            <p class="text-sm">Note: This profile site is not affiliated with NetEase or IdentityV.</p>
+            <h3 data-i18n="footer_name" class="text-xl font-bold">uJayden</h3>
+            <p data-i18n="footer_tagline" class="text-sm">An IdentityV player who enjoys playing as Fire Investigator.</p>
+            <p data-i18n="footer_note" class="text-sm">Note: This profile site is not affiliated with NetEase or IdentityV.</p>
             <div class="flex flex-wrap gap-4 mt-4 text-xl">
-                <a href="https://www.ujayden.com" target="_blank" title="Blog"><i class="ti ti-news"></i></a>
-                <a href="mailto:admin@ujayden.com" target="_blank" title="Email"><i class="ti ti-mail"></i></a>
-                <a href="https://github.com/uJayden" target="_blank" title="GitHub"><i class="ti ti-brand-github"></i></a>
-                <a href="https://x.com/ujayden_" target="_blank" title="X"><i class="ti ti-brand-x"></i></a>
-                <a href="https://threads.net/@ujayden_00" target="_blank" title="Threads"><i class="ti ti-brand-threads"></i></a>
-                <a href="https://ujayden.com/privacy_policy" target="_blank" title="Privacy Policy"><i class="ti ti-shield-lock"></i></a>
-                <a href="https://github.com/RyanFitzgerald/devportfolio" target="_blank" title="Site inspiration by RyanFitzgerald/devportfolio"><i class="ti ti-book-2"></i></a>
+                <a href="https://www.ujayden.com" target="_blank" title="Blog" data-i18n="footer_link_blog"><i class="ti ti-news"></i></a>
+                <a href="mailto:admin@ujayden.com" target="_blank" title="Email" data-i18n="footer_link_email"><i class="ti ti-mail"></i></a>
+                <a href="https://github.com/uJayden" target="_blank" title="GitHub" data-i18n="footer_link_github"><i class="ti ti-brand-github"></i></a>
+                <a href="https://x.com/ujayden_" target="_blank" title="X" data-i18n="footer_link_x"><i class="ti ti-brand-x"></i></a>
+                <a href="https://threads.net/@ujayden_00" target="_blank" title="Threads" data-i18n="footer_link_threads"><i class="ti ti-brand-threads"></i></a>
+                <a href="https://ujayden.com/privacy_policy" target="_blank" title="Privacy Policy" data-i18n="footer_link_privacy"><i class="ti ti-shield-lock"></i></a>
+                <a href="https://github.com/RyanFitzgerald/devportfolio" target="_blank" title="Site inspiration by RyanFitzgerald/devportfolio" data-i18n="footer_link_inspiration"><i class="ti ti-book-2"></i></a>
             </div>
-                <p class="mt-4 text-sm text-zinc-500 hidden">&copy; 2026 uJayden. All rights reserved.</p>
-                <p class="text-xs text-zinc-500">Information may not be up-to-date. Privacy Policy applies.</p>
-                <p class="text-xs text-zinc-500">Image copyright belongs to their respective owners (i.e. NetEase).</p>
-                <p class="text-xs text-zinc-500">Last updated: May 20, 2026. Site version: 2.0</p>
+                <p data-i18n="footer_copyright" class="mt-4 text-sm text-zinc-500 hidden">&copy; 2026 uJayden. All rights reserved.</p>
+                <p data-i18n="footer_disclaimer" class="text-xs text-zinc-500">Information may not be up-to-date. Privacy Policy applies.</p>
+                <p data-i18n="footer_copyright_note" class="text-xs text-zinc-500">Image copyright belongs to their respective owners (i.e. NetEase).</p>
+                <p data-i18n="footer_version" class="text-xs text-zinc-500">Last updated: May 20, 2026. Site version: 2.0</p>
         </aside>
         <!-- Removed classs: "hidden md:block"-->
         <img src="/idv_assets/images/florian_investigating.webp" alt="Florian Investigating" class="w-64 h-auto object-contain drop-shadow-md mx-auto lg:ml-auto lg:mr-0">
@@ -464,8 +464,8 @@
     <div id="first_copy_alert" class="alert bg-zinc-900 border border-blue-500/30 text-zinc-300 shadow-2xl transition-all duration-500 ease-out -translate-y-10 opacity-0">
         <i class="ti ti-info-circle text-blue-400 text-2xl"></i>
         <div class="text-left font-sans">
-            <h3 class="font-bold text-zinc-100">Copied to clipboard! But......</h3>
-            <div class="text-xs">Please remember to clarify who you are or state the reason for the friend request.</div>
+            <h3 data-i18n="copy_alert_title" class="font-bold text-zinc-100">Copied to clipboard! But......</h3>
+            <div data-i18n="copy_alert_text" class="text-xs">Please remember to clarify who you are or state the reason for the friend request.</div>
         </div>
     </div>
 </div>
@@ -477,15 +477,15 @@
             <li><a href="#profile-card" data-i18n="nav_profile_card"><i class="ti ti-id text-xl mr-2"></i> Profile Card</a></li>
             <li><a href="#gameplay-stats" data-i18n="nav_gameplay_stats"><i class="ti ti-chart-bar text-xl mr-2"></i> Stats</a></li>
             <li><a href="#about" data-i18n="nav_about"><i class="ti ti-user-circle text-xl mr-2"></i> About</a></li>
-            <li><a href="#favourite-character"><i class="ti ti-star text-xl mr-2"></i> Favourite Character</a></li>
-            <li><a href="#fun-facts"><i class="ti ti-message text-xl mr-2"></i> Fun Facts</a></li>
-            <li><a href="#faq"><i class="ti ti-zoom text-xl mr-2"></i> FAQ</a></li>
-            <li><a href="#message-box"><i class="ti ti-sign-right text-xl mr-2"></i> Leave a Message</a></li>
+            <li><a href="#favourite-character" data-i18n="nav_favourite_character"><i class="ti ti-star text-xl mr-2"></i> Favourite Character</a></li>
+            <li><a href="#fun-facts" data-i18n="nav_fun_facts"><i class="ti ti-message text-xl mr-2"></i> Fun Facts</a></li>
+            <li><a href="#faq" data-i18n="nav_faq"><i class="ti ti-zoom text-xl mr-2"></i> FAQ</a></li>
+            <li><a href="#message-box" data-i18n="nav_message_box"><i class="ti ti-sign-right text-xl mr-2"></i> Leave a Message</a></li>
             <div class="divider my-0"></div>
-            <li><a href="https://ujayden.com" target="_blank"><i class="ti ti-app-window text-xl mr-2"></i> My Site</a></li>
-            <li><a href="https://tools.ujayden.com/" target="_blank"><i class="ti ti-hammer text-xl mr-2"></i> Toolbox</a></li>
+            <li><a href="https://ujayden.com" target="_blank" data-i18n="nav_my_site"><i class="ti ti-app-window text-xl mr-2"></i> My Site</a></li>
+            <li><a href="https://tools.ujayden.com/" target="_blank" data-i18n="nav_toolbox"><i class="ti ti-hammer text-xl mr-2"></i> Toolbox</a></li>
             <div class="divider my-0"></div>
-            <li><a href="#"><i class="ti ti-arrow-up text-xl mr-2"></i> Back to Top</a></li>
+            <li><a href="#" data-i18n="nav_back_to_top"><i class="ti ti-arrow-up text-xl mr-2"></i> Back to Top</a></li>
         </ul>
     </div>
 </div> <!-- drawer -->
