@@ -24,7 +24,7 @@
     <script src="/libraries/leaflet/leaflet.js" defer></script>
     <script src="/idv_assets/idv_script.js" defer></script>
 </head>
-<body class="theme-page">
+<body class="theme-page" tabindex="0">
 <div class="drawer">
     <input id="my-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
@@ -52,7 +52,15 @@
                 </button>
             </li>
             <li id="language-dropdown" class="dropdown dropdown-end dropdown-hover flex items-center">
-                <button type="button" id="language-dropdown-trigger" aria-haspopup="menu" aria-expanded="false" aria-label="Language" data-i18n-aria-label="language_menu" class="hover:text-current !flex items-center cursor-pointer appearance-none bg-transparent border-0 p-0">
+                <button
+                    type="button"
+                    id="language-dropdown-trigger"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-label="Language"
+                    data-i18n-aria-label="language_menu"
+                    class="hover:text-current !flex items-center cursor-pointer appearance-none bg-transparent border-0 p-0"
+                >
                     <i class="ti ti-world text-xl leading-none"></i>
                 </button>
                 <div class="dropdown-content absolute right-0 top-full pt-2 z-[1]">
