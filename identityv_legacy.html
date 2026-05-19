@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">uJayden's IdentityV Profile</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--<link rel="stylesheet" href="/idv_assets/idv.css">-->
+    <script src="/idv_assets/idv.js" defer></script>
+    <link rel="stylesheet" href="/idv_assets/idv_tw.css">
+    <link rel="stylesheet" href="/libraries/leaflet/leaflet.css">
+    <link rel="stylesheet" href="/libraries/glightbox/glightbox.min.css">
+    <link rel="stylesheet" href="/idv_assets/additional-features-styling.css">
+    <script src="/libraries/glightbox/glightbox.min.js" defer></script>
+    <script src="/libraries/leaflet/leaflet.js" defer></script>
+    <script src="/idv_assets/additional-features.js" defer></script>
+    <link rel="preload" href="/idv_assets/idv_language_en.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/idv_assets/idv_language_tc.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/idv_assets/idv_data.json" as="fetch" crossorigin="anonymous">
+    <link rel="preload" href="/global_config.json" as="fetch" crossorigin="anonymous">
+    <meta property="og:title" content="uJayden's IdentityV Profile" />
+    <meta property="og:description" content="See my IdentityV profile, including statistics and more!" />
+    <meta property="og:image" content="https://hub.ujayden.com/idv_assets/images/background.PNG" />
+    <meta property="og:url" content="https://hub.ujayden.com/identityv" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow">
+    <!--Developer message: Version 1.3-->
+</head>
+<body class="min-h-screen overlay-dark">
+    <header class="p-4 sm:p-6">
+        <div class="glass-enhanced rounded-2xl shadow-lg p-4 max-w-6xl mx-auto">
+            <div class="flex justify-between items-center gap-4">
+                <!-- Hello Message - Left Side -->
+                <div id="helloMsg" class="flex-1">
+                    <p data-i18n="hello_message" class="text-white text-lg sm:text-xl font-semibold">Hi, I am uJayden</p>
+                </div>
+                
+                <!-- Menu Dropdown - Right Side -->
+                <div id="menu-dropdown" class="flex-shrink-0">
+                    <div class="dropdown dropdown-end">
+                        <button tabindex="0" role="button" class="btn btn-ghost text-white hover:bg-white/20 min-h-0 h-10 px-4" aria-label="Open menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <span class="ml-2 hidden sm:inline" data-i18n="menu_button">Menu</span>
+                        </button>
+                        <ul tabindex="0" class="dropdown-content menu menu-glass rounded-lg z-[1000] w-52 p-4 shadow-xl border border-white/30 mt-2">
+                        <!-- Language Section -->
+                        <li class="menu-title">
+                            <span class="text-white/80">Language / 語言</span>
+                        </li>
+                        <li><a id="lang-en" class="text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-lang="en">English</a></li>
+                        <li><a id="lang-tc" class="text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-lang="tc">中文</a></li>
+                        
+                        <!-- Divider -->
+                        <li class="my-1"><hr class="border-white/30" /></li>
+                        
+                        <!-- Navigate Section -->
+                        <li class="menu-title">
+                            <span data-i18n="menu_navigate" class="text-white/80">Go to</span>
+                        </li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="profile" data-i18n="nav_profile">Profile</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="stats" data-i18n="nav_stats">Statistics</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="character-knowledge" data-i18n="nav_character_knowledge">Character Knowledge</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="favourite-character" data-i18n="nav_favourite_character">Favourite Character</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="about-me" data-i18n="nav_about_me">About Me</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="where-am-i" data-i18n="nav_where_am_i">Where am I?</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="more-info" data-i18n="nav_more_info">More Information</a></li>
+                        <li><a class="navigate-link text-white hover:bg-white/25 rounded-lg active:bg-white/30" data-target="links" data-i18n="nav_links">Links</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-8 pb-12 px-6 space-y-20 max-w-6xl mx-auto">
+        <!-- Profile Section - Left Aligned -->
+        <div class="flex justify-start">
+            <div id="profile" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="profile_title" class="text-2xl font-bold text-white mb-4">Profile</h2>
+                <div class="space-y-4 text-white">
+                    <!-- Main Name -->
+                    <p><strong data-i18n="name_label" class="text-blue-200">Name:</strong> <span >uJayden</span></p>
+                    
+                    <!-- Asia Server Info -->
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20">
+                        <h3 data-i18n="asia_server_label" class="text-lg font-semibold text-blue-300 mb-2">Asia Server</h3>
+                        <div class="space-y-2">
+                            <p><strong data-i18n="ign_label" class="text-blue-200">IGN:</strong> <span >火災調查員฀</span></p>
+                            <p class="flex items-center gap-2 flex-wrap">
+                                <strong data-i18n="id_label" class="text-blue-200">ID:</strong> 
+                                <span class="font-mono text-sm sm:text-base">16938170</span>
+                                <button class="copy-id-btn ml-2 px-2 py-1 text-xs bg-blue-500/30 hover:bg-blue-500/50 border border-blue-400/60 rounded transition-all duration-200 text-blue-200 flex-shrink-0" 
+                                        data-id="16938170" 
+                                        title="Click to copy ID">
+                                    📋
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- China Server Info -->
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20">
+                        <h3 data-i18n="china_server_label" class="text-lg font-semibold text-red-300 mb-2">China Server</h3>
+                        <div class="space-y-2">
+                            <p><strong data-i18n="ign_label" class="text-red-200">IGN:</strong> <span >哈基火灾调查员</span></p>
+                            <p class="flex items-center gap-2 flex-wrap">
+                                <strong data-i18n="id_label" class="text-red-200">ID:</strong> 
+                                <span class="font-mono text-sm sm:text-base">301080114</span>
+                                <button class="copy-id-btn ml-2 px-2 py-1 text-xs bg-red-500/30 hover:bg-red-500/50 border border-red-400/60 rounded transition-all duration-200 text-red-200 flex-shrink-0" 
+                                        data-id="301080114" 
+                                        title="Click to copy ID">
+                                    📋
+                                </button>
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Profile Screenshots Section -->
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20">
+                        <a href="idv_assets/images/profile.jpg" class="glightbox" data-gallery="profile-screenshots">
+                            <img src="idv_assets/images/profile.jpg" alt="Profile Screenshot Asia Server" class="w-full h-auto object-cover rounded-lg mb-4 border-2 border-white/40 shadow-lg cursor-pointer hover:opacity-90 transition-opacity">
+                        </a>
+                        <p data-i18n="profile_screenshot_caption" class="text-white/80 text-sm">Too small? Click the image to view full size.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Statistics Section - Right Aligned -->
+        <div class="flex justify-end">
+            <div id="stats" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <div class="flex flex-col h-full">
+                    <!-- Top Section with Stats -->
+                    <div class="flex-1">
+                        <!-- Statistics Title -->
+                        <h2 data-i18n="stats_title" class="text-2xl font-bold text-white mb-6 text-center">Statistics</h2>
+                        
+                        <!-- Role Stats -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Survivor Stats -->
+                            <div class="text-center">
+                                <div class="flex items-center justify-center mb-2">
+                                    <img id="survivor-tier-icon" src="idv_assets/images/s-7-basic.png" alt="Survivor Tier" 
+                                         class="w-20 h-20 mr-2 object-contain">
+                                </div>
+                                <h3 data-i18n="survivor_label" class="text-white font-semibold mb-1">Survivor</h3>
+                                <p data-i18n="survivor_tier" class="text-blue-200 text-sm">Tier VII</p>
+                            </div>
+                            
+                            <!-- Hunter Stats -->
+                            <div class="text-center">
+                                <div class="flex items-center justify-center mb-2">
+                                    <img id="hunter-tier-icon" src="idv_assets/images/h-5.png" alt="Hunter Tier" 
+                                         class="w-20 h-20 mr-2 object-contain">
+                                </div>
+                                <h3 data-i18n="hunter_label" class="text-white font-semibold mb-1">Hunter</h3>
+                                <p data-i18n="hunter_tier" class="text-red-200 text-sm">Tier V - II</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Historical Stats Section -->
+                        <div class="mt-8">
+                            <h3 data-i18n="historical_stats_title" class="text-xl font-semibold text-white mb-4 text-center">Historical Stats</h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Historical Survivor Stats -->
+                                <div class="text-center">
+                                    <div class="flex items-center justify-center mb-2">
+                                        <img id="historical-survivor-tier-icon" src="idv_assets/images/s-7-basic.png" alt="Historical Survivor Tier" 
+                                             class="w-20 h-20 mr-2 object-contain">
+                                    </div>
+                                    <h4 data-i18n="survivor_label" class="text-white font-semibold mb-1">Survivor</h4>
+                                    <p data-i18n="historical_survivor_tier" class="text-blue-200 text-sm">Tier VII - 0 Star(s)</p>
+                                </div>
+                                
+                                <!-- Historical Hunter Stats -->
+                                <div class="text-center">
+                                    <div class="flex items-center justify-center mb-2">
+                                        <img id="historical-hunter-tier-icon" src="idv_assets/images/h-5.png" alt="Historical Hunter Tier" 
+                                             class="w-20 h-20 mr-2 object-contain">
+                                    </div>
+                                    <h4 data-i18n="hunter_label" class="text-white font-semibold mb-1">Hunter</h4>
+                                    <p data-i18n="historical_hunter_tier" class="text-red-200 text-sm">Tier V - II</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bottom Section - Last Updated -->
+                    <div class="mt-6 pt-4 border-t border-white/30">
+                        <p class="text-white/80 text-sm text-center" data-i18n="last_updated">Last updated: 06/09/2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Character Knowledge Points Section - Left Aligned -->
+        <div class="flex justify-start">
+            <div id="character-knowledge" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="character_knowledge_title" class="text-2xl font-bold text-white mb-6">Character Knowledge Points</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-white">
+                        <thead>
+                            <tr class="border-b border-white/30">
+                                <th data-i18n="highest_label" class="text-left py-3 px-4 font-semibold">Highest</th>
+                                <th data-i18n="character_name_label" class="text-left py-3 px-4 font-semibold">Character Name</th>
+                                <th data-i18n="current_label" class="text-left py-3 px-4 font-semibold">Current</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/20">
+                                <td class="py-3 px-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="idv_assets/images/Badge_Survivor_A.webp" alt="A Badge" class="h-8 object-contain">
+                                        <span>(7143)</span>
+                                    </div>
+                                </td>
+                                <td class="py-3 px-4" data-i18n="fire_investigator_label">Fire Investigator</td>
+                                <td class="py-3 px-4">
+                                    <span>No :/</span>
+                                    <!--<img src="idv_assets/images/Badge_Survivor_C.png" alt="C Badge" class="h-8 object-contain">-->
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Favourite Character Section - Right Aligned -->
+        <div class="flex justify-end">
+            <div id="favourite-character" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="favourite_character_title" class="text-2xl font-bold text-white mb-6">Favourite Character</h2>
+                <div class="flex flex-col sm:flex-row gap-6 items-start">
+                    <!-- Character Image -->
+                    <div class="flex-shrink-0 mx-auto sm:mx-0">
+                        <img src="idv_assets/images/florian_brand.gif" alt="Favourite Character" 
+                             class="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-lg border-2 border-white/40 shadow-lg">
+                    </div>
+                    
+                    <!-- Character Description -->
+                    <div class="flex-1 text-white space-y-3">
+                        <h3 data-i18n="character_name" class="text-xl font-semibold text-purple-200">Florian Brand, the Fire Investigator</h3>
+                        <p data-i18n="character_description" class="text-sm sm:text-base leading-relaxed">
+                            This is my favourite character in Identity V. I love playing as Florian not only because he is cute and cool, 
+                            but also because of his tragic backstory, which makes me sympathize with him. I also like his two-faced complexity and moral ambiguity, with his kindness and hidden darkness.
+                            <br>
+                            Anyway, who doesn't love a cute fire Investigator? 🔥
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Section - left Aligned -->
+        <div class="flex justify-start">
+            <div id="about-me" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="about_me_title" class="text-2xl font-bold text-white mb-6">About Me</h2>
+                <div class="text-white space-y-4">
+                    <p data-i18n="about_me_intro" class="text-sm sm:text-base leading-relaxed">
+                        Hi! I'm uJayden, I am a Hong Konger and a university student studying LSGI. I've been playing Identity V for several years from 2018 to now. I am not a professional player that in a top tier of ranking, but I enjoy the game and playing my favourite character, Florian Brand.
+                    </p>
+                    <p data-i18n="about_me_gaming" class="text-sm sm:text-base leading-relaxed">
+                        When I'm not playing Identity V, I will do something related to programming, such as coding and maintaining my website, even I am a LSGI student. I also play some games such as Honkai Star Rail, Cities Skylines, Minecraft, Oxygen Not Included and The Sims 4. I look forward to a friendly discussion about IdentityV! About CP: I don't ship nor oppose any CP. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Where am I - Right Aligned-->
+        <div class="flex justify-end">
+            <div id="where-am-i" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="where_am_i_title" class="text-2xl font-bold text-white mb-6">Where am I?</h2>
+                <div class="text-white space-y-4">
+                    <div id="map"></div>
+                    <p data-i18n="where_am_i_description" class="text-sm sm:text-base leading-relaxed">
+                        I am a Hong Konger, so of course I am in Hong Kong right now.
+                </div>
+            </div>
+        </div>
+        <!--More Information  - Left Aligned-->
+        <div class="flex justify-start">
+            <div id="more-info" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <div class="space-y-4 text-white">
+                    <h2 data-i18n="more_info_title" class="text-2xl font-bold text-white mb-6">More Information</h2>
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20">
+                        <h2 data-i18n="faq_add_friend_q">Can I add your friend in the game?</h2>
+                        <p data-i18n="faq_add_friend_a">Yes, sure! Please add your reason in the friend request message so that I know who you are.</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20 mt-4">
+                        <h2 data-i18n="faq_update_profile_q">How often do you update this profile?</h2>
+                        <p data-i18n="faq_update_profile_a">I usually update this profile every 1-3 months, depending on my time schedule and how much my stats change.</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20 mt-4">
+                        <h2 data-i18n="faq_add_social_q">Can I add your friend on Discord / Instagram?</h2>
+                        <p data-i18n="faq_add_social_a">Not suggested (until we get to know each other better).</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20 mt-4">
+                        <h2 data-i18n="faq_reply_time_q">How long do you need to reply to my messages?</h2>
+                        <p data-i18n="faq_reply_time_a1">It depends on my time schedule. Usually I will reply within a few hours, but sometimes it may take longer.</p>
+                        <p data-i18n="faq_reply_time_a2">Please don't frustrate if I don't reply immediately, I may be busy with my studies or other things. OvO</p>
+                    </div>
+                    <div class="bg-white/10 rounded-lg p-4 border border-white/20 mt-4">
+                        <h2 data-i18n="faq_gender_q">What is your gender?</h2>
+                        <p data-i18n="faq_gender_a">I am male.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Send me a private message - Right Aligned-->
+        <div class="flex justify-end" hidden>
+            <div id="private-message" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <h2 data-i18n="private_message_title" class="text-2xl font-bold text-white mb-6">Send me a private message</h2>
+                <div class="text-white space-y-4">
+                    <form id="message-form" class="space-y-4">
+                        <!-- Message Textarea -->
+                        <div>
+                            <label for="message" data-i18n="message_label" class="block text-sm font-medium mb-2">Your Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                      class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent resize-none"
+                                      data-i18n-placeholder="message_placeholder" placeholder="Type your message here..."></textarea>
+                        </div>
+                        <!-- Privacy Policy & Terms Checkbox -->
+                        <div class="flex items-start gap-3">
+                            <input type="checkbox" id="agree-terms" name="agree-terms" required
+                                   class="mt-1 w-4 h-4 accent-blue-500 rounded focus:ring-2 focus:ring-blue-400">
+                            <label for="agree-terms" class="text-sm ml-2">
+                                <span data-i18n="agree_terms_text">I have read and agree to the </span>
+                                <a href="https://www.ujayden.com/privacy-policy/" target="_blank" rel="noopener noreferrer" 
+                                   class="text-blue-300 hover:text-blue-200 underline" data-i18n="privacy_policy_link">Privacy Policy</a>
+                                <span data-i18n="and_text"> and </span>
+                                <a href="https://www.ujayden.com/terms-of-service/" target="_blank" rel="noopener noreferrer" 
+                                   class="text-blue-300 hover:text-blue-200 underline" data-i18n="terms_of_service_link">Terms of Service</a>.
+                            </label>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <div>
+                            <button type="submit" 
+                                    class="w-full sm:w-auto px-6 py-3 bg-blue-500/40 hover:bg-blue-500/60 border border-blue-400/60 rounded-lg text-white font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                                <span data-i18n="submit_button">Send Message</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Links Section - ALWAYS Left Aligned -->
+        <div class="flex justify-start">
+            <div id="links" class="glass-enhanced rounded-2xl p-6 shadow-lg w-full sm:w-4/5 lg:w-3/4 xl:w-4/5">
+                <div class="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 text-white">
+                    <a href="https://www.ujayden.com/" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/40 rounded-lg transition-all duration-200 text-sm">
+                        <span data-i18n="link_blog">Blog</span>
+                    </a>
+                    
+                    <a href="https://github.com/ujayden" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/40 rounded-lg transition-all duration-200 text-sm">
+                        <span data-i18n="link_github">GitHub</span>
+                    </a>
+                    
+                    <a href="https://www.threads.com/@ujayden_00" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/40 rounded-lg transition-all duration-200 text-sm">
+                        <span data-i18n="link_threads">Threads</span>
+                    </a>
+                    
+                    <a href="mailto:admin@ujayden.com"
+                       class="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/40 rounded-lg transition-all duration-200 text-sm">
+                        <span data-i18n="link_mail">Mail</span>
+                    </a>
+                    
+                    <a href="https://www.ujayden.com/privacy-policy/" target="_blank" rel="noopener noreferrer"
+                       class="flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 border border-white/40 rounded-lg transition-all duration-200 text-sm">
+                        <span data-i18n="link_privacy">Privacy Policy</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YCECGQET86"></script>
+</body>
+</html>
