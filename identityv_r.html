@@ -51,8 +51,10 @@
                     </span>
                 </button>
             </li>
-            <li class="dropdown dropdown-end dropdown-hover flex items-center">
-                <div tabindex="0" role="button" aria-label="Language" data-i18n-aria-label="language_menu" class="hover:text-current !flex items-center cursor-pointer"><i class="ti ti-world text-xl leading-none"></i></div>
+            <li id="language-dropdown" class="dropdown dropdown-end dropdown-hover flex items-center">
+                <button type="button" id="language-dropdown-trigger" aria-haspopup="menu" aria-expanded="false" aria-label="Language" data-i18n-aria-label="language_menu" class="hover:text-current !flex items-center cursor-pointer appearance-none bg-transparent border-0 p-0">
+                    <i class="ti ti-world text-xl leading-none"></i>
+                </button>
                 <div class="dropdown-content absolute right-0 top-full pt-2 z-[1]">
                     <ul tabindex="0" class="menu menu-compact p-2 shadow bg-base-200 rounded-box w-44 !gap-0 text-base-content overflow-hidden">
                         <li class="m-0 p-0"><a data-lang="en" class="!my-0 rounded-none">English</a></li>

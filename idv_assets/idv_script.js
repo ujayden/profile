@@ -325,7 +325,85 @@ function handleLanguageMenuClick(event) {
 
     event.preventDefault();
     loadLanguage(selectedLanguage);
-    document.activeElement.blur();
+    closeLanguageDropdown();
+}
+
+let languageDropdownController = null;
+
+function closeLanguageDropdown() {
+    if (!languageDropdownController) {
+        return;
+    }
+
+    languageDropdownController.close();
+}
+
+function initLanguageDropdownController() {
+    const dropdown = document.getElementById('language-dropdown');
+    const trigger = document.getElementById('language-dropdown-trigger');
+    const menu = dropdown ? dropdown.querySelector('.dropdown-content') : null;
+
+    if (!dropdown || !trigger || !menu) {
+        return;
+    }
+
+    const isTouchLike = window.matchMedia('(hover: none)').matches ||
+        window.matchMedia('(pointer: coarse)').matches ||
+        navigator.maxTouchPoints > 0;
+
+    const setExpanded = expanded => {
+        trigger.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        dropdown.classList.toggle('dropdown-open', expanded);
+    };
+
+    const close = () => {
+        setExpanded(false);
+    };
+
+    languageDropdownController = { close };
+
+    if (isTouchLike) {
+        dropdown.classList.remove('dropdown-hover');
+
+        trigger.addEventListener('click', event => {
+            event.preventDefault();
+            event.stopPropagation();
+            setExpanded(!dropdown.classList.contains('dropdown-open'));
+        });
+
+        document.addEventListener('pointerdown', event => {
+            if (!dropdown.contains(event.target)) {
+                close();
+            }
+        }, true);
+
+        document.addEventListener('touchstart', event => {
+            if (!dropdown.contains(event.target)) {
+                close();
+            }
+        }, true);
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') {
+                close();
+            }
+        });
+
+        window.addEventListener('blur', close);
+        window.addEventListener('pagehide', close);
+    }
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            close();
+        }
+    });
+
+    menu.addEventListener('click', event => {
+        if (event.target.closest('[data-lang]')) {
+            window.setTimeout(close, 0);
+        }
+    });
 }
 
 function applyBasicProfileData(profileData) {
@@ -386,6 +464,7 @@ let AUTO_DETECT_DEV_MODE = true; // Set to false to disable auto-detection of de
 // Drawer close on internal link click
 document.addEventListener('DOMContentLoaded', () => {
     initThemeController();
+    initLanguageDropdownController();
     loadLanguage('auto');
     loadBasicProfileData();
 });
